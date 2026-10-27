@@ -1,0 +1,42 @@
+import type { ItemDef } from "./types";
+
+export const ITEMS: ItemDef[] = [
+  { id: "lighter", label: "Lighter", kid_label: "Lighter", pictogram: "lighter", group: "inventory" },
+  { id: "ferro_rod", label: "Ferro rod", kid_label: "Spark stick", pictogram: "ferro", group: "inventory" },
+  { id: "matches", label: "Matches", kid_label: "Matches", pictogram: "matches", group: "inventory" },
+  { id: "magnifier", label: "Magnifying lens", kid_label: "Magnifying glass", pictogram: "magnifier", group: "inventory" },
+  { id: "clear_bottle", label: "Clear bottle", kid_label: "Clear bottle", pictogram: "bottle", group: "inventory" },
+  { id: "battery", label: "Battery", kid_label: "Battery", pictogram: "battery", group: "inventory" },
+  { id: "steel_wool", label: "Steel wool", kid_label: "Steel wool", pictogram: "wool", group: "inventory" },
+  { id: "foil", label: "Foil or gum wrapper", kid_label: "Foil", pictogram: "foil", group: "inventory" },
+  { id: "cotton_balls", label: "Cotton balls", kid_label: "Cotton balls", pictogram: "cotton", group: "inventory" },
+  { id: "petroleum_jelly", label: "Petroleum jelly", kid_label: "Jelly", pictogram: "cotton", group: "inventory" },
+  { id: "char_cloth", label: "Char cloth", kid_label: "Char cloth", pictogram: "charcloth", group: "inventory" },
+  { id: "hand_sanitizer", label: "Hand sanitizer", kid_label: "Sanitizer", pictogram: "sanitizer", group: "inventory" },
+  { id: "chips", label: "Chips or corn snack", kid_label: "Chips", pictogram: "chips", group: "inventory" },
+  { id: "knife", label: "Knife", kid_label: "Knife", pictogram: "knife", group: "inventory" },
+  { id: "pot", label: "Metal pot", kid_label: "Pot", pictogram: "pot", group: "inventory" },
+  { id: "tarp", label: "Tarp or poncho", kid_label: "Tarp", pictogram: "tarp", group: "inventory" },
+  { id: "cordage", label: "Cord or shoelace", kid_label: "String", pictogram: "cord", group: "inventory" },
+  { id: "whistle", label: "Whistle", kid_label: "Whistle", pictogram: "whistle", group: "inventory" },
+  { id: "mirror", label: "Signal mirror", kid_label: "Mirror", pictogram: "mirror", group: "inventory" },
+  { id: "compass", label: "Compass", kid_label: "Compass", pictogram: "compass", group: "inventory" },
+  { id: "stove", label: "Stove", kid_label: "Stove", pictogram: "stove", group: "inventory" },
+  { id: "phone", label: "Phone", kid_label: "Phone", pictogram: "phone", group: "inventory" },
+  { id: "blanket", label: "Emergency blanket", kid_label: "Blanket", pictogram: "blanket", group: "inventory" },
+  { id: "fatwood", label: "Fatwood or pine knot", kid_label: "Pine knot", pictogram: "fatwood", group: "environment" },
+  { id: "birch_bark", label: "Birch bark", kid_label: "Birch bark", pictogram: "birch", group: "environment" },
+  { id: "dry_grass", label: "Dry grass", kid_label: "Dry grass", pictogram: "grass", group: "environment" },
+  { id: "dung", label: "Dried dung", kid_label: "Dried dung", pictogram: "dung", group: "environment" },
+  { id: "driftwood", label: "Driftwood above the tide line", kid_label: "Dry driftwood", pictogram: "driftwood", group: "environment" },
+  { id: "cattail", label: "Cattail fluff", kid_label: "Cattail fluff", pictogram: "cattail", group: "environment" },
+  { id: "coconut_husk", label: "Coconut husk", kid_label: "Coconut husk", pictogram: "coconut", group: "environment" },
+  { id: "sage", label: "Sagebrush or creosote", kid_label: "Dry bush", pictogram: "sage", group: "environment" },
+  { id: "rocks", label: "Dry rocks", kid_label: "Rocks", pictogram: "rock", group: "environment" },
+  { id: "snow_pack", label: "Snow pack", kid_label: "Snow", pictogram: "snow", group: "environment" },
+  { id: "leaves", label: "Dry leaves", kid_label: "Dry leaves", pictogram: "leaves", group: "environment" },
+  { id: "standing_dead", label: "Dead standing wood", kid_label: "Dead tree", pictogram: "fuel", group: "environment" },
+];
+
+export const INVENTORY_ITEMS = ITEMS.filter((item) => item.group === "inventory");
+export const ENVIRONMENT_ITEMS = ITEMS.filter((item) => item.group === "environment");

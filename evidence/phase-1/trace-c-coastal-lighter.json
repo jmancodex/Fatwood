@@ -1,0 +1,93 @@
+{
+  "ended": true,
+  "deadEnd": false,
+  "finalNodeId": "fire.out",
+  "path": [
+    {
+      "nodeId": "fire.why",
+      "optionId": "warmth",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.hypothermia",
+      "optionId": "onward",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.conditions",
+      "optionId": "dry",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.site",
+      "optionId": "onward",
+      "safety": [
+        "Do not use river rocks or wet stones in a fire ring; trapped water can make them explode.",
+        "Check local fire restrictions and wind; in dry grass or high wind, clear to bare soil and keep water or dirt ready.",
+        "Never build a fire inside an enclosed shelter, tent, or snow cave without ventilation — carbon monoxide is odorless and lethal."
+      ],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.materials",
+      "optionId": "onward",
+      "safety": [],
+      "substitutions": [
+        "cattail fluff",
+        "driftwood above the high-tide line"
+      ]
+    },
+    {
+      "nodeId": "fire.ignition",
+      "optionId": "lighter",
+      "safety": [
+        "Never use gasoline to start or revive a fire."
+      ],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.method.lighter",
+      "optionId": "onward",
+      "safety": [
+        "Never use gasoline to start or revive a fire."
+      ],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.lay",
+      "optionId": "teepee",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.lay.teepee",
+      "optionId": "onward",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.troubleshoot",
+      "optionId": "ok",
+      "safety": [],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.bank",
+      "optionId": "onward",
+      "safety": [
+        "Never build a fire inside an enclosed shelter, tent, or snow cave without ventilation — carbon monoxide is odorless and lethal."
+      ],
+      "substitutions": []
+    },
+    {
+      "nodeId": "fire.out",
+      "safety": [
+        "Fully extinguish: drown, stir, drown again, and touch-test for heat before leaving."
+      ],
+      "substitutions": []
+    }
+  ]
+}

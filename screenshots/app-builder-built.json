@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Fatwood",
+      "hasCanvas": false,
+      "bodyTextLen": 375,
+      "bodyTextHash": "0f2ffec3dd231922a87a1fa875162dd0707db63a88b0886ac32375ede76d86e8",
+      "bodyTextPrefix": "Fatwood Offline field guide Night vision Settings Where are you?",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Fatwood",
+      "hasCanvas": false,
+      "bodyTextLen": 375,
+      "bodyTextHash": "0f2ffec3dd231922a87a1fa875162dd0707db63a88b0886ac32375ede76d86e8",
+      "bodyTextPrefix": "Fatwood Offline field guide Night vision Settings Where are you?",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
