@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { chromium } from "playwright";
-import { blockNetworkWithPrecache, readPrecache } from "./offline-precache.mjs";
+import { abortRoutedRequests, waitForPrecache } from "./offline-precache.mjs";
 
 const url = process.env.LH_URL ?? "http://127.0.0.1:8081";
 
@@ -143,10 +143,10 @@ const manifest = await page.evaluate(async () => {
   return response.json();
 });
 const controlled = await page.evaluate(() => Boolean(navigator.serviceWorker.controller));
-const snapshot = await readPrecache(page);
+await waitForPrecache(page);
 await page.close();
 
-const leaked = await blockNetworkWithPrecache(context, snapshot);
+const leaked = await abortRoutedRequests(context);
 const cold = await context.newPage();
 let coldStart = "FAIL";
 try {

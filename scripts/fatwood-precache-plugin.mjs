@@ -63,10 +63,14 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       const cache = await caches.open(CACHE);
-      const cached = await cache.match(request, { ignoreSearch: true });
+      const cached =
+        (await cache.match(request, { ignoreSearch: true, ignoreVary: true })) ||
+        (await cache.match(url.pathname, { ignoreSearch: true, ignoreVary: true }));
       if (cached) return cached;
       if (request.mode === "navigate") {
-        const shell = (await cache.match("/")) || (await cache.match("/index.html"));
+        const shell =
+          (await cache.match("/", { ignoreVary: true })) ||
+          (await cache.match("/index.html", { ignoreVary: true }));
         if (shell) return shell;
       }
       return fetch(request);

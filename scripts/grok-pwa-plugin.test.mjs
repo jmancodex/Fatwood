@@ -21,6 +21,21 @@ import { renderInstallPage } from "./grok-pwa-plugin.mjs";
 
 const TEMPLATE_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
+// These cases describe the enabled injector. The product default is off.
+process.env.VITE_GROK_EXTENSIONS ??= "1";
+
+test("omits the extensions script unless it is explicitly enabled", () => {
+  const previous = process.env.VITE_GROK_EXTENSIONS;
+  delete process.env.VITE_GROK_EXTENSIONS;
+  try {
+    const out = injectGrokPwaHead("<html><head></head></html>", { appName: "Demo", projectId: "proj-123" });
+    assert.doesNotMatch(out, /grok-app-builder\/extensions\.js/);
+  } finally {
+    if (previous === undefined) delete process.env.VITE_GROK_EXTENSIONS;
+    else process.env.VITE_GROK_EXTENSIONS = previous;
+  }
+});
+
 test("injects before </head>", () => {
   const out = injectGrokPwaHead("<html><head><title>x</title></head><body></body></html>");
   assert.match(out, /rel="manifest"/);

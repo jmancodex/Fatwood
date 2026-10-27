@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium } from "playwright";
-import { blockNetworkWithPrecache, readPrecache } from "../scripts/offline-precache.mjs";
+import { abortRoutedRequests, waitForPrecache } from "../scripts/offline-precache.mjs";
 
 const BASE = "http://127.0.0.1:8081";
 mkdirSync("evidence/phase-1", { recursive: true });
@@ -154,10 +154,10 @@ try {
   await page.evaluate(() => localStorage.clear());
   await page.goto(BASE);
   await page.locator("[data-ready=yes]").waitFor();
-  const snapshot = await readPrecache(page);
+  await waitForPrecache(page);
   await page.close();
 
-  const leaked = await blockNetworkWithPrecache(context, snapshot);
+  const leaked = await abortRoutedRequests(context);
   const cold = await context.newPage();
   cold.on("pageerror", (error) => errors.push(String(error)));
   await cold.goto(BASE);
