@@ -1,0 +1,38 @@
+{
+  "id": "keep_fire_going",
+  "title": "Keep a fire going",
+  "pictogram": "fire",
+  "danger": "fire",
+  "kid_text": "Give it air and thin sticks.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Open a gap so air hits the base.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Add fluff if it only smokes.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Add one thin stick at a time.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Do not lay a thick log on a new flame.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Near a shelter, keep the air moving.",
+      "pictogram": "vent",
+      "skill": "fire_co_safety"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You pile on wrist-thick wood too soon.",
+      "fix": "Wait until the flame is the size of two hands.",
+      "pictogram": "fuel"
+    }
+  ]
+}

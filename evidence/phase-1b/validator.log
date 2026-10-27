@@ -1,0 +1,32 @@
+actionable: 83
+linked: 67
+atomic: 16
+coverage: 1
+unknown: none
+orphans: none
+errors: 0
+
+id | title | mean | max | steps
+bank_fire_overnight | Bank a fire overnight | 0.61 | 3.65 | 5
+baton_knife | Baton with a knife | -1.06 | -0.28 | 4
+blow_ember_to_flame | Blow an ember to flame | -0.72 | 0.63 | 5
+bow_drill | Use a bow drill | 0.53 | 2.34 | 5
+build_lean_to_lay | Build a lean-to lay | 0.17 | 2.28 | 4
+build_log_cabin_lay | Build a log cabin lay | 0.13 | 0.80 | 4
+build_platform_fire | Build a platform fire | 0.66 | 4.00 | 5
+build_teepee_lay | Build a teepee lay | 1.87 | 4.00 | 4
+build_tinder_bundle | Build a tinder bundle | -0.37 | 0.52 | 4
+collect_tinder_kindling_fuel | Collect tinder, kindling, and fuel | 0.31 | 2.31 | 5
+dry_wet_wood | Dry wet wood | 0.27 | 2.31 | 4
+find_fatwood | Find fatwood | -0.31 | 0.52 | 5
+fire_co_safety | Keep the air safe | 0.44 | 2.28 | 5
+hand_drill | Use a hand drill | -0.19 | 0.52 | 5
+hold_knife_safely | Hold a knife safely | 0.47 | 2.48 | 4
+keep_fire_going | Keep a fire going | 0.93 | 2.48 | 5
+make_feather_stick | Make a feather stick | -0.74 | 0.52 | 5
+pick_fire_site | Pick a fire site | 0.26 | 2.48 | 5
+process_fatwood | Process fatwood | -0.39 | 0.80 | 4
+put_fire_out | Put a fire out | -0.24 | 2.88 | 5
+strike_match | Strike a match | 0.22 | 2.48 | 5
+use_ferro_rod | Use a ferro rod | 0.61 | 0.63 | 5
+use_lighter | Use a lighter | -0.23 | 2.31 | 5

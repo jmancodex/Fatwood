@@ -1,0 +1,42 @@
+{
+  "id": "use_lighter",
+  "title": "Use a lighter",
+  "pictogram": "lighter",
+  "danger": "fire",
+  "kid_text": "Warm the lighter. A grown-up lights it.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Warm a cold lighter in your pocket.",
+      "pictogram": "lighter"
+    },
+    {
+      "text": "Turn your back to the wind.",
+      "pictogram": "wind"
+    },
+    {
+      "text": "Spin the wheel with your thumb.",
+      "pictogram": "lighter"
+    },
+    {
+      "text": "Hold the flame under the nest.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Add one thin stick at a time.",
+      "pictogram": "kindling"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The lighter is too cold to spark.",
+      "fix": "Warm it in a pocket first.",
+      "pictogram": "lighter"
+    },
+    {
+      "text": "You dump the whole pile on.",
+      "fix": "Add one thin stick.",
+      "pictogram": "kindling"
+    }
+  ]
+}

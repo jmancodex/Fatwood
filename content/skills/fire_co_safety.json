@@ -1,0 +1,39 @@
+{
+  "id": "fire_co_safety",
+  "title": "Keep the air safe",
+  "pictogram": "vent",
+  "danger": "fire",
+  "kid_text": "The fire stays outside a closed shelter.",
+  "safety": [
+    "Never build a fire inside an enclosed shelter, tent, or snow cave without ventilation — carbon monoxide is odorless and lethal."
+  ],
+  "steps": [
+    {
+      "text": "Do not light a fire in a closed tent.",
+      "pictogram": "vent"
+    },
+    {
+      "text": "Do not light one in a closed snow cave.",
+      "pictogram": "snow"
+    },
+    {
+      "text": "Leave a high hole for the smoke.",
+      "pictogram": "vent"
+    },
+    {
+      "text": "Leave a low hole for fresh air.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "If you cannot vent, keep the fire outside.",
+      "pictogram": "shelter"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You close the door on the fire.",
+      "fix": "Open a hole or move the fire out.",
+      "pictogram": "vent"
+    }
+  ]
+}

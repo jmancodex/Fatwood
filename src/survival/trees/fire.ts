@@ -805,6 +805,106 @@ const nodes: Node[] = [
   },
 ];
 
+/** Skill id, or an atomic reason prefixed with "!". Every actionable step is listed. */
+const STEP_LINKS: Record<string, string> = {
+  "fire.hypothermia.h1": "!Move the person before any tool work.",
+  "fire.hypothermia.h2": "!Change wet clothes. No tool skill applies.",
+  "fire.hypothermia.h3": "!Stay with them and be gentle.",
+  "fire.hypothermia.h4": "keep_fire_going",
+  "fire.fuel.nowood.n1": "!Use the dry plants that are already here.",
+  "fire.fuel.nowood.n2": "!Snap dead stems. They burn or they do not.",
+  "fire.fuel.nowood.n3": "!Search the ground before you spend a flame.",
+  "fire.fuel.nowood.n4": "collect_tinder_kindling_fuel",
+  "fire.site.s1": "pick_fire_site",
+  "fire.site.s2": "pick_fire_site",
+  "fire.site.s3": "pick_fire_site",
+  "fire.site.s4": "build_platform_fire",
+  "fire.site.s5": "fire_co_safety",
+  "fire.materials.m1": "build_tinder_bundle",
+  "fire.materials.m2": "collect_tinder_kindling_fuel",
+  "fire.materials.m3": "collect_tinder_kindling_fuel",
+  "fire.materials.m4": "process_fatwood",
+  "fire.fuel.core.c1": "dry_wet_wood",
+  "fire.fuel.core.c2": "baton_knife",
+  "fire.fuel.core.c3": "make_feather_stick",
+  "fire.ignition.i1": "build_tinder_bundle",
+  "fire.ignition.i2": "!Pick the tool you have. The next screen teaches it.",
+  "fire.method.lighter.l1": "use_lighter",
+  "fire.method.lighter.l2": "use_lighter",
+  "fire.method.lighter.l3": "collect_tinder_kindling_fuel",
+  "fire.method.ferro.f1": "use_ferro_rod",
+  "fire.method.ferro.f2": "use_ferro_rod",
+  "fire.method.ferro.f3": "blow_ember_to_flame",
+  "fire.method.matches.a1": "strike_match",
+  "fire.method.matches.a2": "strike_match",
+  "fire.method.matches.a3": "collect_tinder_kindling_fuel",
+  "fire.method.sun.u1": "!Aim the bright dot. The next step teaches the coal.",
+  "fire.method.sun.u2": "!Shape the bottle or the ice into a point.",
+  "fire.method.sun.u3": "blow_ember_to_flame",
+  "fire.method.battery.b1": "!Touch fine steel wool to both ends of the cell.",
+  "fire.method.battery.b2": "!Heat the thin foil neck with the cell.",
+  "fire.method.battery.b3": "!Keep the cell away from your face.",
+  "fire.method.hand.hd1": "hand_drill",
+  "fire.method.hand.hd2": "hand_drill",
+  "fire.method.hand.hd3": "hand_drill",
+  "fire.method.bow.bd1": "bow_drill",
+  "fire.method.bow.bd2": "bow_drill",
+  "fire.method.bow.bd3": "bow_drill",
+  "fire.method.bow.bd4": "bow_drill",
+  "fire.method.plough.p1": "!Rub the groove. The next step teaches the coal.",
+  "fire.method.plough.p2": "blow_ember_to_flame",
+  "fire.method.feather.fe1": "dry_wet_wood",
+  "fire.method.feather.fe2": "make_feather_stick",
+  "fire.method.feather.fe3": "make_feather_stick",
+  "fire.lay.teepee.t1": "build_teepee_lay",
+  "fire.lay.teepee.t2": "build_teepee_lay",
+  "fire.lay.teepee.t3": "build_teepee_lay",
+  "fire.lay.cabin.c1": "build_log_cabin_lay",
+  "fire.lay.cabin.c2": "build_log_cabin_lay",
+  "fire.lay.cabin.c3": "build_log_cabin_lay",
+  "fire.lay.leanto.e1": "build_lean_to_lay",
+  "fire.lay.leanto.e2": "build_lean_to_lay",
+  "fire.lay.leanto.e3": "build_lean_to_lay",
+  "fire.lay.dakota.d1": "!Dig two holes joined at the bottom.",
+  "fire.lay.dakota.d2": "!Leave the air hole open.",
+  "fire.lay.dakota.d3": "pick_fire_site",
+  "fire.lay.star.r1": "build_teepee_lay",
+  "fire.lay.star.r2": "!Point the big logs at the coals.",
+  "fire.lay.star.r3": "keep_fire_going",
+  "fire.lay.platform.pf1": "build_platform_fire",
+  "fire.lay.platform.pf2": "build_platform_fire",
+  "fire.lay.platform.pf3": "build_teepee_lay",
+  "fire.lay.platform.pf4": "fire_co_safety",
+  "fire.fix.oxygen.o1": "keep_fire_going",
+  "fire.fix.oxygen.o2": "build_tinder_bundle",
+  "fire.fix.kindling.k1": "collect_tinder_kindling_fuel",
+  "fire.fix.kindling.k2": "build_teepee_lay",
+  "fire.fix.wet.w1": "dry_wet_wood",
+  "fire.fix.wet.w2": "build_platform_fire",
+  "fire.fix.wet.w3": "find_fatwood",
+  "fire.bank.bk1": "bank_fire_overnight",
+  "fire.bank.bk2": "bank_fire_overnight",
+  "fire.bank.bk3": "fire_co_safety",
+  "fire.bank.bk4": "put_fire_out",
+  "fire.out.x1": "put_fire_out",
+  "fire.out.x2": "put_fire_out",
+  "fire.out.x3": "put_fire_out",
+  "fire.out.x4": "put_fire_out",
+};
+
+for (const node of nodes) {
+  for (const item of node.steps) {
+    const link = STEP_LINKS[`${node.id}.${item.id}`];
+    if (!link) continue;
+    if (link.startsWith("!")) {
+      item.atomic = true;
+      item.atomic_reason = link.slice(1);
+    } else {
+      item.skill = link;
+    }
+  }
+}
+
 export const fireTree: Tree = {
   id: "fire",
   title: "Fire",

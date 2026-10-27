@@ -97,6 +97,11 @@ export const PICTOGRAMS: Record<string, PictogramSpec> = {
   dakota: { label: "Dakota hole", paths: ["M6 8h6v4H6z", "M12 14h6v4h-6z", "M10 12c2 1 2 2 2 3"] },
   starfire: { label: "Star fire", paths: ["M12 12l-8 2", "M12 12l8 2", "M12 12 2-7", "M12 12l-5 6", "M12 12l6 5"] },
   pine: { label: "Pine", paths: ["M12 3l-5 7h10z", "M12 8l-6 7h12z", "M12 20v-5"] },
+  teach: {
+    label: "Show me how",
+    paths: ["M5 5h9v14H5z", "M14 5h5v14h-5", "M7 9h5", "M7 12h5", "M16 16c2 1 3 2 3 4", "M18 16v4"],
+  },
+  lock: { label: "Lock", paths: ["M8 11V8a4 4 0 0 1 8 0v3", "M6 11h12v9H6z", "M12 15v2"] },
 };
 
 export function pictogramIds(): string[] {

@@ -1,0 +1,37 @@
+{
+  "id": "collect_tinder_kindling_fuel",
+  "title": "Collect tinder, kindling, and fuel",
+  "pictogram": "kindling",
+  "danger": "none",
+  "kid_text": "Fluff, thumb sticks, then wrist sticks.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Tinder is fluff no thicker than a match.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Kindling is no thicker than your thumb.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Fuel is as thick as your wrist.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Snap each stick. It must break.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Gather twice what you think you need.",
+      "pictogram": "bag"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "A stick bends and will not snap.",
+      "fix": "It is too wet. Set it aside.",
+      "pictogram": "weather_wet"
+    }
+  ]
+}

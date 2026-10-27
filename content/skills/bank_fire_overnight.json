@@ -1,0 +1,39 @@
+{
+  "id": "bank_fire_overnight",
+  "title": "Bank a fire overnight",
+  "pictogram": "starfire",
+  "danger": "fire",
+  "kid_text": "Keep the coals small. Stay out of the smoke.",
+  "safety": [
+    "Never build a fire inside an enclosed shelter, tent, or snow cave without ventilation — carbon monoxide is odorless and lethal."
+  ],
+  "steps": [
+    {
+      "text": "Rake the coals into a small pile.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Point thick logs at that pile.",
+      "pictogram": "starfire"
+    },
+    {
+      "text": "Push the logs in a little at a time.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Sleep upwind of the smoke.",
+      "pictogram": "wind"
+    },
+    {
+      "text": "Do not take the fire into a closed shelter.",
+      "pictogram": "vent"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You go to sleep with a tall flame.",
+      "fix": "Let it fall to coals first.",
+      "pictogram": "fire"
+    }
+  ]
+}

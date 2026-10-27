@@ -1,0 +1,33 @@
+{
+  "id": "hold_knife_safely",
+  "title": "Hold a knife safely",
+  "pictogram": "knife",
+  "danger": "blade",
+  "kid_text": "Point the blade away from you.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Grip the handle, not the blade.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "Point the blade away from your body.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "Cut away from your other hand.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "Close the knife when you stop.",
+      "pictogram": "check"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You cut toward your hand.",
+      "fix": "Turn the blade the other way.",
+      "pictogram": "warning"
+    }
+  ]
+}

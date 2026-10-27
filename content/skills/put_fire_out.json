@@ -1,0 +1,39 @@
+{
+  "id": "put_fire_out",
+  "title": "Put a fire out",
+  "pictogram": "extinguish",
+  "danger": "fire",
+  "kid_text": "Drown it, stir it, and touch-test.",
+  "safety": [
+    "Fully extinguish: drown, stir, drown again, and touch-test for heat before leaving."
+  ],
+  "steps": [
+    {
+      "text": "Pour water on the coals.",
+      "pictogram": "water"
+    },
+    {
+      "text": "Stir the ash with a stick.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Pour water on it again.",
+      "pictogram": "water"
+    },
+    {
+      "text": "Listen. A hiss means it is still hot.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Touch the ash. It must feel cool.",
+      "pictogram": "check"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You leave while the ash still hisses.",
+      "fix": "Drown and stir one more time.",
+      "pictogram": "water"
+    }
+  ]
+}

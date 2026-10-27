@@ -188,6 +188,9 @@ lines.push(`G1.8 e2e log: ${e2eNote}`);
 
 const summary = lines.join("\n");
 writeFileSync("evidence/phase-1/lighthouse-summary.txt", summary + "\n");
+mkdirSync("evidence/phase-1b", { recursive: true });
+writeFileSync("evidence/phase-1b/lighthouse-summary.txt", summary + "\n");
+writeFileSync("evidence/phase-1b/installability.json", JSON.stringify(installabilityReport, null, 2));
 console.log(summary);
 
 const iconSizes = new Set((manifest?.icons ?? []).flatMap((icon) => String(icon.sizes ?? "").split(/\s+/)));

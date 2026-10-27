@@ -1,0 +1,37 @@
+{
+  "id": "blow_ember_to_flame",
+  "title": "Blow an ember to flame",
+  "pictogram": "oxygen",
+  "danger": "fire",
+  "kid_text": "Blow gently on the glow.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Nest the glowing coal in the fluff.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Hold the nest off the wet ground.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Blow with a long soft breath.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Stop if ash flies at your face.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Add a thin stick when you see flame.",
+      "pictogram": "kindling"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You puff hard and the coal dies.",
+      "fix": "Blow like you are cooling soup.",
+      "pictogram": "oxygen"
+    }
+  ]
+}

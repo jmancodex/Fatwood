@@ -46,6 +46,11 @@ export interface Step {
   kid_text: string;
   pictogram: string;
   danger?: Danger;
+  /** Skill id. The same skill is reused; it is not copied onto the step. */
+  skill?: string;
+  /** True when the step is one plain action and does not need a skill. */
+  atomic?: boolean;
+  atomic_reason?: string;
 }
 
 export interface Option {

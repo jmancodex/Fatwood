@@ -4,9 +4,13 @@ import { ENVIRONMENT_ITEMS, INVENTORY_ITEMS } from "@/survival/items";
 import { Pictogram } from "@/survival/pictograms/Pictogram";
 import { resolveSubstitution } from "@/survival/resolver";
 import { clearSession, loadSession, saveSession, type SavedSession } from "@/survival/session";
+import { loadGlossary, loadSkills } from "@/survival/skills/load";
 import { fireTree } from "@/survival/trees/fire";
 import type { Biome, Context, Option, Season, Weather } from "@/survival/types";
 import { BIOMES, SEASONS, WEATHERS } from "@/survival/types";
+
+const SKILLS = loadSkills();
+const GLOSSARY = loadGlossary();
 
 const STATE_KEY = "fatwood.state.v1";
 
@@ -21,6 +25,7 @@ interface Model {
   nodeId: string;
   history: string[];
   adultUnlocked: string[];
+  expanded: string[];
 }
 
 const BIOME_META: { id: Biome; label: string; kid: string; pictogram: string }[] = [
@@ -57,6 +62,7 @@ function initialModel(): Model {
     nodeId: fireTree.entry_node,
     history: [],
     adultUnlocked: [],
+    expanded: [],
   };
 }
 
@@ -80,7 +86,14 @@ export function GuideApp() {
       const raw = localStorage.getItem(STATE_KEY);
       if (raw) {
         const saved = JSON.parse(raw) as Model;
-        if (saved?.context?.biome) setModel(saved);
+        if (saved?.context?.biome) {
+          setModel({
+            ...initialModel(),
+            ...saved,
+            expanded: Array.isArray(saved.expanded) ? saved.expanded : [],
+            adultUnlocked: Array.isArray(saved.adultUnlocked) ? saved.adultUnlocked : [],
+          });
+        }
       }
     } catch {
       /* keep the first-run model */
@@ -103,6 +116,7 @@ export function GuideApp() {
         context: model.context,
         history: model.history,
         adultUnlocked: model.adultUnlocked,
+        expanded: model.expanded,
         updatedAt: new Date().toISOString(),
       };
       saveSession(session, localStorage);
@@ -131,21 +145,39 @@ export function GuideApp() {
     });
   }
 
+  function leaveNode(current: Model, nodeId: string, history: string[]): Model {
+    return {
+      ...current,
+      history,
+      nodeId,
+      expanded: [],
+      adultUnlocked: current.adultUnlocked.filter((id) => id !== current.nodeId),
+    };
+  }
+
+  function toggleSkill(key: string) {
+    setModel((current) => {
+      const open = current.expanded.includes(key);
+      const expanded = open ? current.expanded.filter((item) => item !== key) : [...current.expanded, key];
+      return { ...current, expanded };
+    });
+  }
+
   function startAt(nodeId: string, flags: Record<string, string> = {}) {
     setModel((current) => ({
       ...current,
       screen: "guide",
       nodeId,
       history: [],
+      expanded: [],
+      adultUnlocked: [],
       context: { ...current.context, flags: { ...current.context.flags, ...flags } },
     }));
   }
 
   function choose(option: Option) {
     setModel((current) => ({
-      ...current,
-      history: [...current.history, current.nodeId],
-      nodeId: option.next,
+      ...leaveNode(current, option.next, [...current.history, current.nodeId]),
       context: {
         ...current.context,
         flags: { ...current.context.flags, ...(option.sets ?? {}) },
@@ -158,10 +190,10 @@ export function GuideApp() {
       if (current.screen === "guide" && current.history.length > 0) {
         const history = [...current.history];
         const nodeId = history.pop() ?? fireTree.entry_node;
-        return { ...current, history, nodeId };
+        return leaveNode(current, nodeId, history);
       }
       if (current.screen === "home" || current.screen === "biome") return current;
-      return { ...current, screen: "home" };
+      return { ...current, screen: "home", expanded: [], adultUnlocked: [] };
     });
   }
 
@@ -211,6 +243,7 @@ export function GuideApp() {
                   nodeId: resumed.nodeId,
                   history: resumed.history ?? [],
                   adultUnlocked: resumed.adultUnlocked ?? [],
+                  expanded: resumed.expanded ?? [],
                   context: resumed.context,
                 })
               }
@@ -277,17 +310,15 @@ export function GuideApp() {
           kid={model.kid}
           unlocked={model.adultUnlocked.includes(node.id)}
           resolved={resolved}
+          skills={SKILLS}
+          glossary={GLOSSARY}
+          expanded={model.expanded}
+          onToggleSkill={toggleSkill}
           onUnlock={() =>
             patch({ adultUnlocked: model.adultUnlocked.includes(node.id) ? model.adultUnlocked : [...model.adultUnlocked, node.id] })
           }
           onChoose={choose}
-          onFallback={(nodeId) =>
-            setModel((current) => ({
-              ...current,
-              history: [...current.history, current.nodeId],
-              nodeId,
-            }))
-          }
+          onFallback={(nodeId) => setModel((current) => leaveNode(current, nodeId, [...current.history, current.nodeId]))}
         />
       ) : null}
 

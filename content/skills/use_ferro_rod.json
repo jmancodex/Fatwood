@@ -1,0 +1,42 @@
+{
+  "id": "use_ferro_rod",
+  "title": "Use a ferro rod",
+  "pictogram": "ferro",
+  "danger": "fire",
+  "kid_text": "Pull the rod back. A grown-up scrapes.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Put the ferro rod in the nest.",
+      "pictogram": "ferro"
+    },
+    {
+      "text": "Press the scraper hard on the rod.",
+      "pictogram": "ferro"
+    },
+    {
+      "text": "Pull the rod back, not the scraper.",
+      "pictogram": "ferro"
+    },
+    {
+      "text": "Aim the sparks into the nest.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Blow gently when you see a glow.",
+      "pictogram": "oxygen"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You push the scraper into the nest.",
+      "fix": "Pull the rod back instead.",
+      "pictogram": "ferro"
+    },
+    {
+      "text": "You blow so hard the glow dies.",
+      "fix": "Use a long soft breath.",
+      "pictogram": "oxygen"
+    }
+  ]
+}

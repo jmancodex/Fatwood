@@ -1,0 +1,38 @@
+{
+  "id": "bow_drill",
+  "title": "Use a bow drill",
+  "pictogram": "bowdrill",
+  "danger": "fire",
+  "kid_text": "A grown-up pulls the bow back and forth.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Tie a loose string on a bent stick.",
+      "pictogram": "cord"
+    },
+    {
+      "text": "Wrap that string once around the spindle.",
+      "pictogram": "bowdrill"
+    },
+    {
+      "text": "Cut a notch in the hearth to the edge.",
+      "pictogram": "knife",
+      "skill": "hold_knife_safely"
+    },
+    {
+      "text": "Pull the bow in long smooth strokes.",
+      "pictogram": "bowdrill"
+    },
+    {
+      "text": "Tip the coal into the nest when it smokes.",
+      "pictogram": "tinder"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The string is so tight it will not move.",
+      "fix": "Loosen it until the spindle turns.",
+      "pictogram": "cord"
+    }
+  ]
+}

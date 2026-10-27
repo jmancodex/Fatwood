@@ -1,0 +1,75 @@
+{
+  "watch": ["tinder", "kindling", "fuel", "ferro rod", "baton", "ember", "coal", "hearth", "spindle", "fatwood"],
+  "entries": [
+    {
+      "id": "tinder",
+      "term": "tinder",
+      "pictogram": "tinder",
+      "text": "Tinder is the fluffy dry stuff that takes the first spark.",
+      "kid_text": "Fluffy stuff that lights first."
+    },
+    {
+      "id": "kindling",
+      "term": "kindling",
+      "pictogram": "kindling",
+      "text": "Kindling is a thin stick, no thicker than your thumb.",
+      "kid_text": "A thin stick."
+    },
+    {
+      "id": "fuel",
+      "term": "fuel",
+      "pictogram": "fuel",
+      "text": "Fuel is a stick as thick as your wrist, or thicker.",
+      "kid_text": "A thick stick."
+    },
+    {
+      "id": "ferro_rod",
+      "term": "ferro rod",
+      "pictogram": "ferro",
+      "text": "A ferro rod is a metal stick that throws sparks when you scrape it.",
+      "kid_text": "A stick that makes sparks."
+    },
+    {
+      "id": "baton",
+      "term": "baton",
+      "pictogram": "knife",
+      "text": "To baton is to hit the back of a knife with a stick so the wood splits.",
+      "kid_text": "Hit the knife with a stick to split wood."
+    },
+    {
+      "id": "ember",
+      "term": "ember",
+      "pictogram": "fire",
+      "text": "An ember is a small red glow that is not a flame yet.",
+      "kid_text": "A red glow."
+    },
+    {
+      "id": "coal",
+      "term": "coal",
+      "pictogram": "fire",
+      "text": "A coal is a hot glowing piece you can blow into a flame.",
+      "kid_text": "A hot glowing bit."
+    },
+    {
+      "id": "hearth",
+      "term": "hearth",
+      "pictogram": "platform",
+      "text": "A hearth is the flat board the drill spins on.",
+      "kid_text": "The flat board under the stick."
+    },
+    {
+      "id": "spindle",
+      "term": "spindle",
+      "pictogram": "handdrill",
+      "text": "A spindle is the straight stick you spin to make heat.",
+      "kid_text": "The stick you spin."
+    },
+    {
+      "id": "fatwood",
+      "term": "fatwood",
+      "pictogram": "fatwood",
+      "text": "Fatwood is pine wood full of sticky sap. It lights when wet.",
+      "kid_text": "Sticky pine wood that lights."
+    }
+  ]
+}

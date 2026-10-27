@@ -1,0 +1,33 @@
+{
+  "id": "build_log_cabin_lay",
+  "title": "Build a log cabin lay",
+  "pictogram": "cabin",
+  "danger": "fire",
+  "kid_text": "Stack a small square of sticks.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Light a small cone in the center first.",
+      "pictogram": "teepee"
+    },
+    {
+      "text": "Lay two sticks, then two across them.",
+      "pictogram": "cabin"
+    },
+    {
+      "text": "Leave gaps so air can move.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Wait for coals before you cook.",
+      "pictogram": "cook"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You put a pot on the first flame.",
+      "fix": "Wait until the sticks fall into coals.",
+      "pictogram": "cook"
+    }
+  ]
+}
