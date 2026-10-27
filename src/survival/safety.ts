@@ -11,3 +11,16 @@ export const FIRE_SAFETY = {
 } as const;
 
 export const FIRE_SAFETY_STRINGS: readonly string[] = Object.values(FIRE_SAFETY);
+
+export const WATER_SAFETY = {
+  seawater: "Never drink seawater or urine.",
+  snow: "Do not eat snow or ice to hydrate; melt it first — eating it accelerates hypothermia.",
+  boil: "Boil at a rolling boil for 1 minute (3 minutes above 2,000 m / 6,500 ft).",
+  filter:
+    "Improvised sand/charcoal filters clarify water but do not make it safe; disinfect afterward.",
+  bleach:
+    "Bleach: use only plain unscented 5–9% sodium hypochlorite, 2 drops per liter, wait 30 minutes; double for cloudy or cold water.",
+  protein: "If water is scarce, do not eat high-protein food; digestion uses water.",
+} as const;
+
+export const WATER_SAFETY_STRINGS: readonly string[] = Object.values(WATER_SAFETY);

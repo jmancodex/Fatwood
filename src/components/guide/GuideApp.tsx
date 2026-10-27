@@ -5,6 +5,7 @@ import { Pictogram } from "@/survival/pictograms/Pictogram";
 import { resolveSubstitution } from "@/survival/resolver";
 import { clearSession, loadSession, saveSession, type SavedSession } from "@/survival/session";
 import { fireTree } from "@/survival/trees/fire";
+import { waterTree } from "@/survival/trees/water";
 import type { Biome, Context, Option, Season, Weather } from "@/survival/types";
 import { BIOMES, SEASONS, WEATHERS } from "@/survival/types";
 
@@ -16,6 +17,7 @@ interface Model {
   onboarded: boolean;
   theme: "field" | "night";
   kid: boolean;
+  treeId: "fire" | "water";
   context: Context;
   screen: Screen;
   nodeId: string;
@@ -52,6 +54,7 @@ function initialModel(): Model {
     onboarded: false,
     theme: "field",
     kid: false,
+    treeId: "fire",
     context: freshContext(),
     screen: "biome",
     nodeId: fireTree.entry_node,
@@ -60,13 +63,14 @@ function initialModel(): Model {
   };
 }
 
-function matchWant(text: string): { nodeId: string; purpose: string } | null {
+function matchWant(text: string): { treeId: "fire" | "water"; nodeId: string; purpose: string } | null {
   const value = text.toLowerCase();
-  if (/cold|warm|hypo|freeze|heat me/.test(value)) return { nodeId: "fire.hypothermia", purpose: "warmth" };
-  if (/water|boil|drink|thirst/.test(value)) return { nodeId: "fire.conditions", purpose: "purify" };
-  if (/cook|food|eat|hungry/.test(value)) return { nodeId: "fire.conditions", purpose: "cook" };
-  if (/signal|found|seen|rescue|help/.test(value)) return { nodeId: "fire.conditions", purpose: "signal" };
-  if (/bug|insect|morale|mosquito/.test(value)) return { nodeId: "fire.conditions", purpose: "morale" };
+  if (/cold|warm|hypo|freeze|heat me/.test(value)) return { treeId: "fire", nodeId: "fire.hypothermia", purpose: "warmth" };
+  if (/water|thirst|drink|dehydr/.test(value)) return { treeId: "water", nodeId: "water.triage", purpose: "drink" };
+  if (/boil/.test(value)) return { treeId: "water", nodeId: "water.boil", purpose: "purify" };
+  if (/cook|food|eat|hungry/.test(value)) return { treeId: "fire", nodeId: "fire.conditions", purpose: "cook" };
+  if (/signal|found|seen|rescue|help/.test(value)) return { treeId: "fire", nodeId: "fire.conditions", purpose: "signal" };
+  if (/bug|insect|morale|mosquito/.test(value)) return { treeId: "fire", nodeId: "fire.conditions", purpose: "morale" };
   return null;
 }
 
@@ -80,7 +84,9 @@ export function GuideApp() {
       const raw = localStorage.getItem(STATE_KEY);
       if (raw) {
         const saved = JSON.parse(raw) as Model;
-        if (saved?.context?.biome) setModel(saved);
+        if (saved?.context?.biome) {
+          setModel({ ...saved, treeId: saved.treeId === "water" ? "water" : "fire" });
+        }
       }
     } catch {
       /* keep the first-run model */
@@ -97,8 +103,9 @@ export function GuideApp() {
     document.documentElement.dataset.theme = model.theme;
     document.documentElement.dataset.kid = model.kid ? "on" : "off";
     if (model.screen === "guide") {
+      const tree = model.treeId === "water" ? waterTree : fireTree;
       const session: SavedSession = {
-        treeId: fireTree.id,
+        treeId: tree.id,
         nodeId: model.nodeId,
         context: model.context,
         history: model.history,
@@ -109,7 +116,8 @@ export function GuideApp() {
     }
   }, [model, ready]);
 
-  const node = fireTree.nodes.find((item) => item.id === model.nodeId) ?? fireTree.nodes[0];
+  const tree = model.treeId === "water" ? waterTree : fireTree;
+  const node = tree.nodes.find((item) => item.id === model.nodeId) ?? tree.nodes[0];
   const resolved = (node.substitutions ?? []).map((sub) => resolveSubstitution(sub, model.context));
   const resumed = ready ? loadSession(localStorage) : null;
 
@@ -131,10 +139,11 @@ export function GuideApp() {
     });
   }
 
-  function startAt(nodeId: string, flags: Record<string, string> = {}) {
+  function startAt(nodeId: string, flags: Record<string, string> = {}, treeId: "fire" | "water" = "fire") {
     setModel((current) => ({
       ...current,
       screen: "guide",
+      treeId,
       nodeId,
       history: [],
       context: { ...current.context, flags: { ...current.context.flags, ...flags } },
@@ -157,7 +166,7 @@ export function GuideApp() {
     setModel((current) => {
       if (current.screen === "guide" && current.history.length > 0) {
         const history = [...current.history];
-        const nodeId = history.pop() ?? fireTree.entry_node;
+        const nodeId = history.pop() ?? (current.treeId === "water" ? waterTree.entry_node : fireTree.entry_node);
         return { ...current, history, nodeId };
       }
       if (current.screen === "home" || current.screen === "biome") return current;
@@ -208,6 +217,7 @@ export function GuideApp() {
               onClick={() =>
                 patch({
                   screen: "guide",
+                  treeId: resumed.treeId === "water" ? "water" : "fire",
                   nodeId: resumed.nodeId,
                   history: resumed.history ?? [],
                   adultUnlocked: resumed.adultUnlocked ?? [],
@@ -231,12 +241,12 @@ export function GuideApp() {
       {model.screen === "need" ? (
         <section className="flex flex-col gap-3">
           <h1 className="font-display text-4xl tracking-wide">I need</h1>
-          <BigTile label="Water" pictogram="water" disabled />
+          <BigTile label="Water" pictogram="water" onClick={() => startAt(waterTree.entry_node, {}, "water")} />
           <BigTile label="Food" pictogram="food" disabled />
-          <BigTile label="Fire" pictogram="fire" onClick={() => startAt(fireTree.entry_node)} />
+          <BigTile label="Fire" pictogram="fire" onClick={() => startAt(fireTree.entry_node, {}, "fire")} />
           <BigTile label="Shelter" pictogram="shelter" disabled />
           <BigTile label="Signaling and navigation" pictogram="navigate" disabled />
-          <p className="text-muted">This build walks the fire tree. The other needs stay on the page so the map of the guide is visible.</p>
+          <p className="text-muted">Water and fire are in this build. Food, shelter, and signaling are later.</p>
         </section>
       ) : null}
 
@@ -244,7 +254,7 @@ export function GuideApp() {
         <section className="flex flex-col gap-3">
           <h1 className="font-display text-4xl tracking-wide">I want</h1>
           <WantChip label="Get warm" pictogram="warmth" onClick={() => startAt("fire.hypothermia", { purpose: "warmth" })} />
-          <WantChip label="Boil water" pictogram="boil" onClick={() => startAt("fire.conditions", { purpose: "purify" })} />
+          <WantChip label="Boil water" pictogram="boil" onClick={() => startAt("water.triage", { purpose: "drink" }, "water")} />
           <WantChip label="Cook" pictogram="cook" onClick={() => startAt("fire.conditions", { purpose: "cook" })} />
           <WantChip label="Be found" pictogram="signal" onClick={() => startAt("fire.conditions", { purpose: "signal" })} />
           <WantChip label="Keep insects off" pictogram="insects" onClick={() => startAt("fire.conditions", { purpose: "morale" })} />
@@ -262,8 +272,8 @@ export function GuideApp() {
             className="tap-target rounded-xl bg-accent px-4 font-display text-2xl text-accent-fg"
             onClick={() => {
               const hit = matchWant(wantText);
-              if (!hit) startAt(fireTree.entry_node);
-              else startAt(hit.nodeId, { purpose: hit.purpose });
+              if (!hit) startAt(fireTree.entry_node, {}, "fire");
+              else startAt(hit.nodeId, { purpose: hit.purpose }, hit.treeId);
             }}
           >
             Use these words

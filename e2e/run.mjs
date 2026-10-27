@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
+import net from "node:net";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium } from "playwright";
 import { abortRoutedRequests, waitForPrecache } from "../scripts/offline-precache.mjs";
@@ -55,6 +56,11 @@ async function openFire(page) {
   await button(page, "Fire").click();
 }
 
+async function openWater(page) {
+  await button(page, "I need").click();
+  await button(page, "Water").click();
+}
+
 async function finish(page, lay) {
   await button(page, "Choose the fire lay").click();
   await button(page, lay).click();
@@ -69,6 +75,30 @@ async function reset(page) {
   await button(page, "Settings").click();
   await button(page, "Reset this guide").click();
   await page.getByRole("heading", { name: "Where are you?" }).waitFor();
+}
+
+async function assertPreviewPortFree() {
+  const used = await new Promise((resolve) => {
+    const socket = net.connect({ port: 8081, host: "127.0.0.1" });
+    const finish = (value) => {
+      socket.removeAllListeners();
+      socket.destroy();
+      resolve(value);
+    };
+    socket.once("connect", () => finish(true));
+    socket.once("error", () => finish(false));
+  });
+  if (used) {
+    throw new Error("port 8081 is already in use; stop the other preview before e2e");
+  }
+}
+
+try {
+  await assertPreviewPortFree();
+} catch (error) {
+  log(`FAIL ${error instanceof Error ? error.message : error}`);
+  writeFileSync("evidence/phase-1/e2e.log", lines.join("\n") + "\n");
+  process.exit(1);
 }
 
 const preview = spawn("npm", ["run", "preview", "--", "--host", "127.0.0.1", "--port", "8081", "--strictPort"], {
@@ -95,7 +125,7 @@ try {
   if (!(await button(page, "First aid").isDisabled())) throw new Error("first aid should be disabled");
   await button(page, "I need").click();
   for (const [name, enabled] of [
-    ["Water", false],
+    ["Water", true],
     ["Food", false],
     ["Fire", true],
     ["Shelter", false],
@@ -150,6 +180,30 @@ try {
   await page.reload();
   await page.locator("[data-node='fire.hypothermia']").waitFor();
   log("PASS save resume");
+
+  await reset(page);
+  await onboard(page, "Temperate forest", "Dry");
+  await addGear(page, "Bleach");
+  await button(page, "Settings").click();
+  await page.getByRole("checkbox", { name: "Kid mode" }).check();
+  await button(page, "Back").click();
+  await openWater(page);
+  await button(page, "I drank today").click();
+  await button(page, "Stream").click();
+  await button(page, "Make it safe").click();
+  await button(page, "Use drops").click();
+  await page.getByTestId("grownup-gate").waitFor();
+  if ((await page.getByText("2 drops each liter").count()) !== 0) throw new Error("kid mode showed the bleach dose");
+  const waterHold = button(page, "Press and hold to show the steps");
+  await waterHold.scrollIntoViewIfNeeded();
+  const waterBox = await waterHold.boundingBox();
+  if (!waterBox || waterBox.height < 48 || waterBox.width < 48) throw new Error(`water tap target ${JSON.stringify(waterBox)}`);
+  await page.mouse.move(waterBox.x + waterBox.width / 2, waterBox.y + waterBox.height / 2);
+  await page.mouse.down();
+  await page.waitForTimeout(1200);
+  await page.mouse.up();
+  await page.getByText("2 drops each liter").waitFor();
+  log("PASS water kid gate");
 
   await page.evaluate(() => localStorage.clear());
   await page.goto(BASE);
@@ -240,10 +294,58 @@ try {
   await cold.getByText("no-gear method").first().waitFor();
   log("PASS golden e");
 
+  await reset(cold);
+  await onboard(cold, "Desert", "Hot");
+  await openWater(cold);
+  await button(cold, "I drank today").click();
+  await button(cold, "Dig a dry wash").click();
+  await cold.getByText("outer bend").first().waitFor();
+  await button(cold, "Disinfect what you dug").click();
+  await button(cold, "Sunlight in a clear bottle").click();
+  await cold.getByText("6 hours of full sun").waitFor();
+  await cold.getByText("2 days").waitFor();
+  await button(cold, "Store and ration").click();
+  await cold.getByText("Ration sweat, not water").waitFor();
+  log("PASS water desert");
+
+  await reset(cold);
+  await onboard(cold, "Boreal / snow", "Freezing");
+  await addGear(cold, "Stove");
+  await openWater(cold);
+  await button(cold, "I drank today").click();
+  await button(cold, "Melt snow").click();
+  await cold.getByText("Do not eat snow or ice to hydrate").waitFor();
+  await button(cold, "Boil it on the stove").click();
+  await cold.getByText("Boil at a rolling boil for 1 minute").waitFor();
+  await button(cold, "Store and ration").click();
+  log("PASS water boreal");
+
+  await reset(cold);
+  await onboard(cold, "Coast", "Dry");
+  await openWater(cold);
+  await button(cold, "I drank today").click();
+  await button(cold, "Dig a beach well").click();
+  await cold.getByText("Never drink seawater or urine.").waitFor();
+  await button(cold, "Boil the beach-well water").click();
+  await cold.getByText("Boil at a rolling boil for 1 minute").waitFor();
+  log("PASS water coastal");
+
+  await reset(cold);
+  await onboard(cold, "Urban ruin", "Dry");
+  await openWater(cold);
+  await button(cold, "I drank today").click();
+  await button(cold, "Water heater tank").click();
+  await cold.getByText("toilet tank").first().waitFor();
+  await cold.getByText("bowl is never drinking water").waitFor();
+  log("PASS water urban");
+
   if (leaked.length) throw new Error(`network after offline: ${leaked.join(" | ")}`);
   if (errors.length) throw new Error(errors.join(" | "));
   log("PASS offline zero requests of any origin");
-  writeFileSync("evidence/phase-1/e2e.log", lines.join("\n") + "\n");
+  const body = lines.join("\n") + "\n";
+  writeFileSync("evidence/phase-1/e2e.log", body);
+  mkdirSync("evidence/phase-2", { recursive: true });
+  writeFileSync("evidence/phase-2/e2e.log", body);
   await browser.close();
   process.exit(0);
 } catch (error) {

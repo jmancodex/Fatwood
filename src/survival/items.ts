@@ -36,6 +36,14 @@ export const ITEMS: ItemDef[] = [
   { id: "snow_pack", label: "Snow pack", kid_label: "Snow", pictogram: "snow", group: "environment" },
   { id: "leaves", label: "Dry leaves", kid_label: "Dry leaves", pictogram: "leaves", group: "environment" },
   { id: "standing_dead", label: "Dead standing wood", kid_label: "Dead tree", pictogram: "fuel", group: "environment" },
+  { id: "bleach", label: "Bleach", kid_label: "Bleach", pictogram: "bleach", group: "inventory" },
+  { id: "iodine", label: "Iodine tincture", kid_label: "Iodine", pictogram: "iodine", group: "inventory" },
+  { id: "chlorine_dioxide", label: "Chlorine dioxide tablets", kid_label: "Tablets", pictogram: "tablet", group: "inventory" },
+  { id: "water_filter", label: "Water filter", kid_label: "Filter", pictogram: "filter", group: "inventory" },
+  { id: "cloth", label: "Cloth or bandana", kid_label: "Cloth", pictogram: "cloth", group: "inventory" },
+  { id: "plastic_bag", label: "Plastic bag", kid_label: "Bag", pictogram: "bag", group: "inventory" },
+  { id: "black_bag", label: "Black bag or dark cloth", kid_label: "Dark bag", pictogram: "bag", group: "inventory" },
+  { id: "condom", label: "Unlubricated condom", kid_label: "Clean pouch", pictogram: "pouch", group: "inventory" },
 ];
 
 export const INVENTORY_ITEMS = ITEMS.filter((item) => item.group === "inventory");

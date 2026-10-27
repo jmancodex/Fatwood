@@ -1,0 +1,17 @@
+PHASE 2 — Water: PASS
+Phase 1 regression stayed green. No new dependencies. dist/ is still a static bundle.
+
+Gates:
+G2.1 PASS — evidence/phase-2/validator.log (errors: 0)
+G2.2 PASS — dose.test.ts, 6 tests. Treatment order boil → chemical → filter → SODIS. Bleach 2 drops/L, doubled once when cloudy or cold, 30 minutes, 5–9% unscented only. Iodine 5 drops/L of 2% tincture, doubled when cloudy or cold, 60 minutes when cold. Boil 1 minute, 3 minutes above 2,000 m.
+G2.3 PASS — evidence/phase-2/trace-desert-wash-sodis.json, trace-boreal-stove-boil.json, trace-coastal-beach-boil.json, trace-urban-heater.json
+G2.4 PASS — every WATER_SAFETY line is on a node, and walk() records safety before steps
+G2.5 PASS — banned hits: none
+G2.6 PASS — fire goldens, engine coverage lines 94.23% (engine 93.47, resolver 100), tests 33/33
+G2.P PASS — water pictogram coverage 1, unknown none
+G2.K PASS — evidence/phase-2/e2e.log "PASS water kid gate" (chemical node, hold to reveal the dose)
+Offline e2e PASS — same log. setOffline plus abort-all, no fulfill. Water desert, boreal, coastal, and urban ran on the cold page. Routed requests: 0.
+
+Lighthouse 13.5.0 PWA audits service-worker, works-offline, installable-manifest: NOT RUN (category absent). Chrome installability errors: 0. Offline cold start in that run: PASS. evidence/phase-2/lighthouse-summary.txt
+
+Unfinished: Phases 3–7.

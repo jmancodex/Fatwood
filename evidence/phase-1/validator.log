@@ -1,8 +1,7 @@
+tree: fire
 errors: 0
 pictogram coverage: 1
-pictogram useerrors: 0
-pictogram coverage: 1
-pictogram used: 70
+pictogram used: 77
 pictogram unknown: none
 biomes: alpine, boreal/snow, coastal, desert, grassland, temperate_forest, tropical/jungle, urban_ruin
 banned hits: none
