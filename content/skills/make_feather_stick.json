@@ -1,0 +1,40 @@
+{
+  "id": "make_feather_stick",
+  "title": "Make a feather stick",
+  "pictogram": "feather",
+  "danger": "blade",
+  "kid_text": "Shave curls. A grown-up holds the knife.",
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
+  "steps": [
+    {
+      "text": "Hold the knife the safe way.",
+      "pictogram": "knife",
+      "skill": "hold_knife_safely"
+    },
+    {
+      "text": "Split a dead stick that is off the ground.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Shave thin curls toward the base.",
+      "pictogram": "feather"
+    },
+    {
+      "text": "Leave the curls on the stick.",
+      "pictogram": "feather"
+    },
+    {
+      "text": "Light the curls at the low end.",
+      "pictogram": "fire"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You cut the curls off the stick.",
+      "fix": "Leave them attached.",
+      "pictogram": "feather"
+    }
+  ]
+}

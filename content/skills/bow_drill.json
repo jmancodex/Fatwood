@@ -1,0 +1,66 @@
+{
+  "id": "bow_drill",
+  "title": "Use a bow drill",
+  "pictogram": "bowdrill",
+  "danger": "fire",
+  "kid_text": "A grown-up pulls the bow back and forth.",
+  "safety": [
+    "The coal is hot. Do not hold it in your hand."
+  ],
+  "steps": [
+    {
+      "text": "Pick dry soft wood for both pieces.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "The spindle is a straight dry stick.",
+      "pictogram": "handdrill"
+    },
+    {
+      "text": "The hearth is a flat dry board.",
+      "pictogram": "platform"
+    },
+    {
+      "text": "The bearing block is a hard palm-size piece.",
+      "pictogram": "rock"
+    },
+    {
+      "text": "Cut a small pit in the hearth.",
+      "pictogram": "knife",
+      "skill": "hold_knife_safely"
+    },
+    {
+      "text": "Cut a notch from that pit to the edge.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "Press down and pull the bow in long strokes.",
+      "pictogram": "bowdrill"
+    },
+    {
+      "text": "Stop when thick smoke pours out.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Catch the coal on a chip of bark.",
+      "pictogram": "bark"
+    },
+    {
+      "text": "Move that coal into the nest.",
+      "pictogram": "tinder",
+      "skill": "blow_ember_to_flame"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The string is so tight it will not move.",
+      "fix": "Loosen it until the spindle turns.",
+      "pictogram": "cord"
+    },
+    {
+      "text": "The wood is green and shiny.",
+      "fix": "Use dead wood that you can dent.",
+      "pictogram": "fuel"
+    }
+  ]
+}

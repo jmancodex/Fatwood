@@ -1,0 +1,37 @@
+{
+  "id": "find_fatwood",
+  "title": "Find fatwood",
+  "pictogram": "fatwood",
+  "danger": "none",
+  "kid_text": "Look for shiny pine wood that smells sharp.",
+  "safety": [],
+  "steps": [
+    {
+      "text": "Look for a dead pine stump.",
+      "pictogram": "pine"
+    },
+    {
+      "text": "Look for a knot that will not rot.",
+      "pictogram": "fatwood"
+    },
+    {
+      "text": "Smell it. Fatwood smells sharp.",
+      "pictogram": "fatwood"
+    },
+    {
+      "text": "The good wood looks glassy.",
+      "pictogram": "fatwood"
+    },
+    {
+      "text": "Shave off the wet outside.",
+      "pictogram": "knife"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You take the soft wet outside.",
+      "fix": "Carve in until the wood looks glassy.",
+      "pictogram": "knife"
+    }
+  ]
+}

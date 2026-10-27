@@ -1,0 +1,49 @@
+{
+  "id": "put_fire_out",
+  "title": "Put a fire out",
+  "pictogram": "extinguish",
+  "danger": "fire",
+  "kid_text": "Drown it, stir it, and make sure it is cool.",
+  "safety": [
+    "A gray fire can still burn you.",
+    "Feel for heat before you leave."
+  ],
+  "steps": [
+    {
+      "text": "Hold the back of your hand near the coals.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "If it feels hot, do not touch it.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Pour water on the coals if you have it.",
+      "pictogram": "water"
+    },
+    {
+      "text": "If you have no water, use dirt.",
+      "pictogram": "rock"
+    },
+    {
+      "text": "Stir the ash and pour again.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Leave only when it feels cool.",
+      "pictogram": "check"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You touch the coals with your palm.",
+      "fix": "Use the back of your hand first.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "You leave while it still feels warm.",
+      "fix": "Add more water or dirt.",
+      "pictogram": "water"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "build_teepee_lay",
+  "title": "Build a teepee lay",
+  "pictogram": "teepee",
+  "danger": "fire",
+  "kid_text": "Make a cone of sticks with a door.",
+  "safety": [
+    "Do not build under dead branches."
+  ],
+  "steps": [
+    {
+      "text": "Set the burning nest in the center.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Lean thin sticks into a cone.",
+      "pictogram": "teepee"
+    },
+    {
+      "text": "Leave a door on the windy side.",
+      "pictogram": "wind"
+    },
+    {
+      "text": "Add thicker sticks only after it roars.",
+      "pictogram": "fuel"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You close the door and it smokes.",
+      "fix": "Leave a gap for air.",
+      "pictogram": "oxygen"
+    }
+  ]
+}

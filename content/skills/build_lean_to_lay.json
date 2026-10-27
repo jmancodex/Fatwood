@@ -1,0 +1,35 @@
+{
+  "id": "build_lean_to_lay",
+  "title": "Build a lean-to lay",
+  "pictogram": "leanto",
+  "danger": "fire",
+  "kid_text": "Lean sticks on one big stick.",
+  "safety": [
+    "Keep the flame off your clothes."
+  ],
+  "steps": [
+    {
+      "text": "Brace one thick stick at an angle.",
+      "pictogram": "leanto"
+    },
+    {
+      "text": "Lean thin sticks on the calm side.",
+      "pictogram": "kindling"
+    },
+    {
+      "text": "Light the nest under those sticks.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Point the open side away from the wind.",
+      "pictogram": "wind"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The open side faces the rain.",
+      "fix": "Turn it so the sticks block the rain.",
+      "pictogram": "weather_wet"
+    }
+  ]
+}

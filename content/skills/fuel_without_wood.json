@@ -1,0 +1,48 @@
+{
+  "id": "fuel_without_wood",
+  "title": "Burn fuel with no trees",
+  "pictogram": "nowood",
+  "danger": "fire",
+  "kid_text": "Use dry plants if there is no wood.",
+  "safety": [
+    "Sparks in dry grass can run. Clear a bare spot first."
+  ],
+  "steps": [
+    {
+      "text": "Powder dry dung so it catches.",
+      "pictogram": "dung"
+    },
+    {
+      "text": "Twist dry grass into a nest.",
+      "pictogram": "grass"
+    },
+    {
+      "text": "Dead stems that snap can burn.",
+      "pictogram": "sage"
+    },
+    {
+      "text": "Green stems bend. Leave them.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Look for tiny dead sticks on high ground.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Gather a big pile before you light.",
+      "pictogram": "bag"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "A stem bends and will not snap.",
+      "fix": "It is too wet. Set it aside.",
+      "pictogram": "weather_wet"
+    },
+    {
+      "text": "You light a tiny pile.",
+      "fix": "Gather more before you strike.",
+      "pictogram": "bag"
+    }
+  ]
+}

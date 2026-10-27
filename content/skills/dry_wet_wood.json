@@ -1,0 +1,36 @@
+{
+  "id": "dry_wet_wood",
+  "title": "Dry wet wood",
+  "pictogram": "knife",
+  "danger": "blade",
+  "kid_text": "Split the stick. Use the dry inside.",
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
+  "steps": [
+    {
+      "text": "Take a dead branch that is off the ground.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Split it to the dry inside.",
+      "pictogram": "knife",
+      "skill": "baton_knife"
+    },
+    {
+      "text": "The inside feels warmer than the shell.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Shave curls from that dry core.",
+      "pictogram": "feather"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You burn the wet shell and it only smokes.",
+      "fix": "Split it and use the inside.",
+      "pictogram": "knife"
+    }
+  ]
+}

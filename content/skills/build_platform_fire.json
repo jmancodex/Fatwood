@@ -1,0 +1,40 @@
+{
+  "id": "build_platform_fire",
+  "title": "Build a platform fire",
+  "pictogram": "platform",
+  "danger": "fire",
+  "kid_text": "Build on green logs, not on the snow.",
+  "safety": [
+    "Wet rocks can burst. Use dry rocks only.",
+    "Never make a fire in a closed tent or snow cave."
+  ],
+  "steps": [
+    {
+      "text": "Lay two layers of green logs.",
+      "pictogram": "platform"
+    },
+    {
+      "text": "Make the floor wider than the fire.",
+      "pictogram": "platform"
+    },
+    {
+      "text": "Add dry rocks only, never wet ones.",
+      "pictogram": "rock"
+    },
+    {
+      "text": "Build the fire on top of that floor.",
+      "pictogram": "teepee"
+    },
+    {
+      "text": "Leave a hole so fresh air can enter.",
+      "pictogram": "vent"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You set the fire on the snow.",
+      "fix": "Put green logs down first.",
+      "pictogram": "platform"
+    }
+  ]
+}

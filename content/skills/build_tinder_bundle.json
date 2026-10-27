@@ -1,0 +1,35 @@
+{
+  "id": "build_tinder_bundle",
+  "title": "Build a tinder bundle",
+  "pictogram": "tinder",
+  "danger": "fire",
+  "kid_text": "Make a loose fluffy nest.",
+  "safety": [
+    "Light the nest away from your face."
+  ],
+  "steps": [
+    {
+      "text": "Make a nest the size of your fist.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Use fluff that is dry in the middle.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Keep the nest loose so air gets in.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Set the flame under the nest.",
+      "pictogram": "fire"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The nest is wet on the inside.",
+      "fix": "Split a stick and use the dry core.",
+      "pictogram": "knife"
+    }
+  ]
+}

@@ -35,6 +35,7 @@ describe("session", () => {
       context,
       history: ["fire.why"],
       adultUnlocked: [],
+      expanded: ["m4--process_fatwood"],
       updatedAt: "2026-10-27T00:00:00.000Z",
     };
     expect(loadSession(store)).toBeNull();

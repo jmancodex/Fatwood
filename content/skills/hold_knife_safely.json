@@ -1,0 +1,40 @@
+{
+  "id": "hold_knife_safely",
+  "title": "Hold a knife safely",
+  "pictogram": "knife",
+  "danger": "blade",
+  "kid_text": "Point the blade away from you.",
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
+  "steps": [
+    {
+      "text": "Sit down. Put your elbows on your knees.",
+      "pictogram": "person"
+    },
+    {
+      "text": "Cut away from your legs.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "Keep people one arm away.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Close the knife or sheathe it when you stop.",
+      "pictogram": "check"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You cut toward your leg.",
+      "fix": "Turn the blade the other way.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "You leave the blade open.",
+      "fix": "Close it or put it in a sheath.",
+      "pictogram": "check"
+    }
+  ]
+}

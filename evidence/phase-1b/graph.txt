@@ -1,0 +1,10 @@
+
+ RUN  v5.0.5 /workspace
+
+ ✓ src/survival/skills/graph.test.ts (2 tests) 4ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  13:07:12
+   Duration  155ms (transform 64%, import 20%, tests 8%, worker 8%)
+

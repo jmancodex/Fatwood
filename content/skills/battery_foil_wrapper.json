@@ -1,0 +1,45 @@
+{
+  "id": "battery_foil_wrapper",
+  "title": "Light with foil",
+  "pictogram": "foil",
+  "danger": "fire",
+  "kid_text": "A grown-up heats the thin foil.",
+  "safety": [
+    "Foil gets hot fast. Keep it off your skin.",
+    "Do not open the cell."
+  ],
+  "steps": [
+    {
+      "text": "Cut the foil so the middle is thin.",
+      "pictogram": "foil"
+    },
+    {
+      "text": "Put tinder under that thin spot.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Touch each end of the foil to the cell.",
+      "pictogram": "battery"
+    },
+    {
+      "text": "The thin spot gets hot.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Keep your fingers off the hot spot.",
+      "pictogram": "warning"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The foil is the same width all the way.",
+      "fix": "Make the middle into a thin neck.",
+      "pictogram": "foil"
+    },
+    {
+      "text": "You pinch the hot middle.",
+      "fix": "Hold the foil by the ends.",
+      "pictogram": "warning"
+    }
+  ]
+}

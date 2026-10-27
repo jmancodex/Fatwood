@@ -1,0 +1,45 @@
+{
+  "id": "battery_steel_wool",
+  "title": "Light with steel wool",
+  "pictogram": "wool",
+  "danger": "fire",
+  "kid_text": "A grown-up touches the wool to the cell.",
+  "safety": [
+    "The wool flares fast. Keep it off your face.",
+    "Do not open the cell."
+  ],
+  "steps": [
+    {
+      "text": "Pull a thin wisp of steel wool.",
+      "pictogram": "wool"
+    },
+    {
+      "text": "Lay that wisp on the tinder.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Touch both ends of the cell to the wool.",
+      "pictogram": "battery"
+    },
+    {
+      "text": "Let the flare fall into the nest.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Keep the cell away from your face.",
+      "pictogram": "warning"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You hold the wool near your face.",
+      "fix": "Point it down into the nest.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "The wool is a thick pad.",
+      "fix": "Pull it into a thin wisp.",
+      "pictogram": "wool"
+    }
+  ]
+}

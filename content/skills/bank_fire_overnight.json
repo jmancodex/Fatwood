@@ -1,0 +1,46 @@
+{
+  "id": "bank_fire_overnight",
+  "title": "Bank a fire overnight",
+  "pictogram": "starfire",
+  "danger": "fire",
+  "kid_text": "Keep the coals small and sleep away from them.",
+  "safety": [
+    "Never make a fire in a closed tent or snow cave.",
+    "The smoke has a gas you cannot see or smell.",
+    "That gas can kill you."
+  ],
+  "steps": [
+    {
+      "text": "Rake the coals into one pile.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Cover that pile with ash.",
+      "pictogram": "rock"
+    },
+    {
+      "text": "Clear the ground around the fire.",
+      "pictogram": "site"
+    },
+    {
+      "text": "Sleep away from anything that burns.",
+      "pictogram": "shelter"
+    },
+    {
+      "text": "Do not take the fire into a closed shelter.",
+      "pictogram": "vent"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You sleep next to tall flame.",
+      "fix": "Let it fall to coals first.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Dry grass is still near the coals.",
+      "fix": "Clear the ground before you sleep.",
+      "pictogram": "site"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "pick_fire_site",
+  "title": "Pick a fire site",
+  "pictogram": "site",
+  "danger": "fire",
+  "kid_text": "Look up. Clear a bare spot.",
+  "safety": [
+    "In dry grass or high wind, scrape to bare dirt.",
+    "Keep water or dirt ready."
+  ],
+  "steps": [
+    {
+      "text": "Look up for dead branches.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Do not build under those branches.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Clear a circle about three big steps wide.",
+      "pictogram": "site"
+    },
+    {
+      "text": "Scrape down to bare dirt.",
+      "pictogram": "rock"
+    },
+    {
+      "text": "Block the wind, but let the smoke leave.",
+      "pictogram": "wind"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You build on leaves or moss.",
+      "fix": "Scrape to bare dirt first.",
+      "pictogram": "site"
+    }
+  ]
+}

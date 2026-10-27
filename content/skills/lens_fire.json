@@ -1,0 +1,45 @@
+{
+  "id": "lens_fire",
+  "title": "Light with a lens",
+  "pictogram": "magnifier",
+  "danger": "fire",
+  "kid_text": "Aim a tiny bright dot. A grown-up does this.",
+  "safety": [
+    "Do not look at the bright dot. It can hurt your eyes."
+  ],
+  "steps": [
+    {
+      "text": "Use a lens, clear glasses, a water bottle, or clear ice.",
+      "pictogram": "magnifier"
+    },
+    {
+      "text": "Aim a tiny bright dot on dark fluff.",
+      "pictogram": "sun"
+    },
+    {
+      "text": "Hold the dot still until it smokes.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "A wide pale spot will not catch.",
+      "pictogram": "warning"
+    },
+    {
+      "text": "Move the coal into the nest.",
+      "pictogram": "tinder",
+      "skill": "blow_ember_to_flame"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The spot of light is big and pale.",
+      "fix": "Move the lens until the dot is tiny.",
+      "pictogram": "magnifier"
+    },
+    {
+      "text": "You use this under cloud.",
+      "fix": "Wait for a bright open sky.",
+      "pictogram": "sun"
+    }
+  ]
+}

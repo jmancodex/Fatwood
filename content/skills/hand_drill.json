@@ -1,0 +1,40 @@
+{
+  "id": "hand_drill",
+  "title": "Use a hand drill",
+  "pictogram": "handdrill",
+  "danger": "fire",
+  "kid_text": "Spin a dry stick until it smokes.",
+  "safety": [
+    "Stop if your palms blister."
+  ],
+  "steps": [
+    {
+      "text": "Use a long straight dry spindle.",
+      "pictogram": "handdrill"
+    },
+    {
+      "text": "Spin it between your palms.",
+      "pictogram": "handdrill"
+    },
+    {
+      "text": "Press down as your hands slide down.",
+      "pictogram": "handdrill"
+    },
+    {
+      "text": "Stop when the brown dust smokes.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Tip that coal into the nest.",
+      "pictogram": "tinder",
+      "skill": "blow_ember_to_flame"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The spindle is green and bends.",
+      "fix": "Use a dead dry stick.",
+      "pictogram": "fuel"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "fire_plough",
+  "title": "Use a fire plough",
+  "pictogram": "plough",
+  "danger": "fire",
+  "kid_text": "Rub a stick in a groove until it smokes.",
+  "safety": [
+    "The dust gets hot. Do not touch it."
+  ],
+  "steps": [
+    {
+      "text": "Cut a groove in a soft dry board.",
+      "pictogram": "plough"
+    },
+    {
+      "text": "Use a blunt stick that is harder than the board.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Rub that stick along the groove.",
+      "pictogram": "plough"
+    },
+    {
+      "text": "Push the hot dust to the far end.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Tip the dust into the nest.",
+      "pictogram": "tinder",
+      "skill": "blow_ember_to_flame"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The plough stick is sharp.",
+      "fix": "Use a blunt end.",
+      "pictogram": "plough"
+    },
+    {
+      "text": "The board is wet.",
+      "fix": "Pick a dry soft board.",
+      "pictogram": "weather_wet"
+    }
+  ]
+}

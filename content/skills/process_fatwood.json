@@ -1,0 +1,36 @@
+{
+  "id": "process_fatwood",
+  "title": "Process fatwood",
+  "pictogram": "fatwood",
+  "danger": "blade",
+  "kid_text": "A grown-up splits the shiny pine wood.",
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
+  "steps": [
+    {
+      "text": "Split the pine knot to the shiny core.",
+      "pictogram": "fatwood",
+      "skill": "baton_knife"
+    },
+    {
+      "text": "Shave thin curls off that core.",
+      "pictogram": "feather"
+    },
+    {
+      "text": "Keep the curls loose, not packed.",
+      "pictogram": "tinder"
+    },
+    {
+      "text": "Light the curls at one edge.",
+      "pictogram": "fire"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You pack the curls into a tight ball.",
+      "fix": "Leave them loose so air gets in.",
+      "pictogram": "tinder"
+    }
+  ]
+}

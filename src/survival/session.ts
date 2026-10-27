@@ -14,6 +14,8 @@ export interface SavedSession {
   context: Context;
   history: string[];
   adultUnlocked: string[];
+  /** Skill panel keys open on this node. Resume restores them. */
+  expanded: string[];
   updatedAt: string;
 }
 
@@ -30,7 +32,15 @@ export function loadSession(storage: Kv): SavedSession | null {
       return null;
     }
     if (!parsed.context || !Array.isArray(parsed.history)) return null;
-    return parsed as SavedSession;
+    return {
+      treeId: parsed.treeId,
+      nodeId: parsed.nodeId,
+      context: parsed.context,
+      history: parsed.history,
+      adultUnlocked: Array.isArray(parsed.adultUnlocked) ? parsed.adultUnlocked : [],
+      expanded: Array.isArray(parsed.expanded) ? parsed.expanded : [],
+      updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : "",
+    };
   } catch {
     return null;
   }
