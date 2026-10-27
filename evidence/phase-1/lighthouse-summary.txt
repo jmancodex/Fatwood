@@ -1,0 +1,8 @@
+lighthouse: 13.5.0
+pwa score: NOT RUN (category absent)
+installable-manifest: NOT RUN
+service-worker: NOT RUN
+works-offline: NOT RUN
+chrome installability errors: 0
+offline cold start: PASS
+G1.8 e2e log: PASS (see e2e.log)

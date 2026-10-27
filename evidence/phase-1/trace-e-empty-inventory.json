@@ -1,0 +1,394 @@
+{
+  "note": "Empty inventory, every biome and weather, reaches a no-gear method and does not dead-end.",
+  "sample": {
+    "biome": "tropical/jungle",
+    "weather": "wet",
+    "inventory": [],
+    "ended": true,
+    "deadEnd": false,
+    "finalNodeId": "fire.out",
+    "path": [
+      {
+        "nodeId": "fire.why",
+        "optionId": "warmth",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.hypothermia",
+        "optionId": "onward",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.conditions",
+        "optionId": "wet",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.site",
+        "optionId": "onward",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.materials",
+        "optionId": "onward",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.ignition",
+        "optionId": "bow",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.method.bow",
+        "optionId": "onward",
+        "no_gear": true
+      },
+      {
+        "nodeId": "fire.lay",
+        "optionId": "leanto",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.lay.leanto",
+        "optionId": "onward",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.troubleshoot",
+        "optionId": "ok",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.bank",
+        "optionId": "onward",
+        "no_gear": false
+      },
+      {
+        "nodeId": "fire.out",
+        "no_gear": false
+      }
+    ]
+  },
+  "sweep": [
+    {
+      "biome": "temperate_forest",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "temperate_forest",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "temperate_forest",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "temperate_forest",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "boreal/snow",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "boreal/snow",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "boreal/snow",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "boreal/snow",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "desert",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.hand"
+      ]
+    },
+    {
+      "biome": "desert",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "desert",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "desert",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.hand"
+      ]
+    },
+    {
+      "biome": "tropical/jungle",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "tropical/jungle",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "tropical/jungle",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "tropical/jungle",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "grassland",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.hand"
+      ]
+    },
+    {
+      "biome": "grassland",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "grassland",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "grassland",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.hand"
+      ]
+    },
+    {
+      "biome": "coastal",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "coastal",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "coastal",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "coastal",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "alpine",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "alpine",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "alpine",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "alpine",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "urban_ruin",
+      "weather": "dry",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "urban_ruin",
+      "weather": "wet",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "urban_ruin",
+      "weather": "freezing",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    },
+    {
+      "biome": "urban_ruin",
+      "weather": "hot",
+      "ended": true,
+      "deadEnd": false,
+      "finalNodeId": "fire.out",
+      "noGearNodes": [
+        "fire.method.bow"
+      ]
+    }
+  ]
+}

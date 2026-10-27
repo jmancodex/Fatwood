@@ -1,0 +1,20 @@
+PHASE 1 — Engine + Fire: PASS
+Static dist. No Nitro. No db:migrate. Extensions script off unless VITE_GROK_EXTENSIONS=1.
+npm ci exits 0 with no .npmrc and no legacy-peer-deps.
+
+Gates:
+G1.1 PASS — evidence/phase-1/validator.log (errors: 0)
+G1.2 PASS — engine lines 93.47%, resolver lines 100%, combined lines 94.23%. Tests 22/22.
+G1.3 PASS — traces a–e, including evidence/phase-1/trace-e-empty-inventory.json
+G1.4 PASS — safety before steps
+G1.5 PASS — scan of src/ and dist/. Zero network calls outside sw.js.
+G1.6 PASS — banned hits: none
+G1.7 PASS — e2e reload restored fire.hypothermia
+G1.8 PASS — evidence/phase-1/e2e.log. After install: setOffline(true), route('**/*') aborts, no fulfill. Fresh page. Goldens a–e. Routed requests: 0. Served by the service worker (cache match uses ignoreVary because preview sends Vary: Origin).
+G1.9 PARTIAL — Lighthouse 13.5.0 has no PWA category. service-worker, works-offline, installable-manifest: NOT RUN. Report written. Chrome installability errors: 0. Offline cold start in that run: PASS.
+G1.10 PASS — pictogram coverage 1
+G1.11 PASS — kid-mode gate
+G1.12 PASS — shell, night mode, reduced motion, axe
+
+Removed from the install: better-auth, pglite, kysely, pg, nitro, @tanstack/react-start, jose, and the unused UI/server libraries. Removed scripts: db:migrate, test:platform, check:auth.
+Unfinished: Phases 2–7.
