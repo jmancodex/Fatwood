@@ -4,7 +4,9 @@
   "pictogram": "fatwood",
   "danger": "blade",
   "kid_text": "A grown-up splits the shiny pine wood.",
-  "safety": [],
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
   "steps": [
     {
       "text": "Split the pine knot to the shiny core.",

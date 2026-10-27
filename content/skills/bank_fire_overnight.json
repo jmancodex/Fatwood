@@ -3,26 +3,28 @@
   "title": "Bank a fire overnight",
   "pictogram": "starfire",
   "danger": "fire",
-  "kid_text": "Keep the coals small. Stay out of the smoke.",
+  "kid_text": "Keep the coals small and sleep away from them.",
   "safety": [
-    "Never build a fire inside an enclosed shelter, tent, or snow cave without ventilation — carbon monoxide is odorless and lethal."
+    "Never make a fire in a closed tent or snow cave.",
+    "The smoke has a gas you cannot see or smell.",
+    "That gas can kill you."
   ],
   "steps": [
     {
-      "text": "Rake the coals into a small pile.",
+      "text": "Rake the coals into one pile.",
       "pictogram": "fire"
     },
     {
-      "text": "Point thick logs at that pile.",
-      "pictogram": "starfire"
+      "text": "Cover that pile with ash.",
+      "pictogram": "rock"
     },
     {
-      "text": "Push the logs in a little at a time.",
-      "pictogram": "fuel"
+      "text": "Clear the ground around the fire.",
+      "pictogram": "site"
     },
     {
-      "text": "Sleep upwind of the smoke.",
-      "pictogram": "wind"
+      "text": "Sleep away from anything that burns.",
+      "pictogram": "shelter"
     },
     {
       "text": "Do not take the fire into a closed shelter.",
@@ -31,9 +33,14 @@
   ],
   "mistakes": [
     {
-      "text": "You go to sleep with a tall flame.",
+      "text": "You sleep next to tall flame.",
       "fix": "Let it fall to coals first.",
       "pictogram": "fire"
+    },
+    {
+      "text": "Dry grass is still near the coals.",
+      "fix": "Clear the ground before you sleep.",
+      "pictogram": "site"
     }
   ]
 }

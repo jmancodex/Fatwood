@@ -4,7 +4,9 @@
   "pictogram": "cabin",
   "danger": "fire",
   "kid_text": "Stack a small square of sticks.",
-  "safety": [],
+  "safety": [
+    "Wait for coals before a pot goes on."
+  ],
   "steps": [
     {
       "text": "Light a small cone in the center first.",

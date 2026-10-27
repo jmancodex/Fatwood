@@ -91,7 +91,7 @@ describe("NodeView", () => {
     );
     expect(html).toContain("Split the pine knot to the shiny core.");
     expect(html).toContain("Grip the knife the safe way.");
-    expect(html).toContain("Grip the handle, not the blade.");
+    expect(html).toContain("Cut away from your legs.");
     expect(html).toContain('aria-expanded="true"');
   });
 

@@ -198,7 +198,7 @@ export function GuideApp() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-lg flex-col px-4 pt-4 pb-8" data-ready={ready ? "yes" : "no"}>
+    <main className="guide-shell mx-auto flex min-h-screen w-full max-w-lg flex-col px-4 pt-4" data-ready={ready ? "yes" : "no"}>
       <header className="mb-4 flex items-center gap-2">
         {model.screen !== "home" && model.screen !== "biome" ? (
           <IconButton label="Back" pictogram="back" onClick={back} />

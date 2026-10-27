@@ -124,3 +124,27 @@ html[data-kid="on"] .pic {
   white-space: nowrap;
   border: 0;
 }
+
+.guide-shell {
+  padding-bottom: calc(var(--action-bar, 0px) + env(safe-area-inset-bottom) + 0.75rem);
+}
+
+.action-bar {
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  width: min(32rem, 100%);
+  transform: translateX(-50%);
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--color-bg);
+  padding: 0.5rem 1rem calc(env(safe-area-inset-bottom) + 0.25rem);
+}
+
+.show-me,
+.gate-button,
+.hold-host {
+  scroll-margin-bottom: calc(var(--action-bar, 0px) + env(safe-area-inset-bottom) + 0.75rem);
+}

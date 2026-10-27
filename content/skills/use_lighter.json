@@ -4,7 +4,9 @@
   "pictogram": "lighter",
   "danger": "fire",
   "kid_text": "Warm the lighter. A grown-up lights it.",
-  "safety": [],
+  "safety": [
+    "Point the flame away from your sleeve."
+  ],
   "steps": [
     {
       "text": "Warm a cold lighter in your pocket.",

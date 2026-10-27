@@ -4,7 +4,9 @@
   "pictogram": "oxygen",
   "danger": "fire",
   "kid_text": "Blow gently on the glow.",
-  "safety": [],
+  "safety": [
+    "Blow gently so ash stays out of your eyes."
+  ],
   "steps": [
     {
       "text": "Nest the glowing coal in the fluff.",

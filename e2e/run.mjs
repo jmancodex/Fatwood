@@ -118,6 +118,47 @@ async function pointerHold(page, locator, ms, move = 0) {
   await page.mouse.up();
 }
 
+async function liftClearOfBar(page, locator) {
+  const handle = await locator.elementHandle();
+  if (!handle) throw new Error("missing hit target");
+  await page.evaluate((el) => {
+    const bar = document.querySelector("[data-action-bar]");
+    const barTop = bar ? bar.getBoundingClientRect().top : window.innerHeight;
+    const rect = el.getBoundingClientRect();
+    if (rect.bottom > barTop - 8) window.scrollBy(0, rect.bottom - (barTop - 12));
+    const next = el.getBoundingClientRect();
+    if (next.top < 4) window.scrollBy(0, next.top - 8);
+  }, handle);
+}
+
+async function assertFullyHittable(page, locator) {
+  await locator.scrollIntoViewIfNeeded();
+  await liftClearOfBar(page, locator);
+  const box = await locator.boundingBox();
+  const viewport = page.viewportSize();
+  if (!box || !viewport) throw new Error("missing box");
+  if (box.width < 48 || box.height < 48) throw new Error(`tap target ${Math.round(box.width)}x${Math.round(box.height)}`);
+  if (box.x < 0 || box.y < 0 || box.x + box.width > viewport.width + 1 || box.y + box.height > viewport.height + 1) {
+    throw new Error(`clipped ${JSON.stringify(box)} in ${viewport.width}x${viewport.height}`);
+  }
+  const label = ((await locator.innerText()) || "").replace(/\s+/g, " ").trim();
+  const points = [
+    [box.x + 4, box.y + 4],
+    [box.x + box.width / 2, box.y + box.height / 2],
+    [box.x + box.width - 4, box.y + box.height - 4],
+  ];
+  for (const [x, y] of points) {
+    const hit = await page.evaluate(({ x, y }) => {
+      const el = document.elementFromPoint(x, y);
+      const button = el && el.closest("button");
+      return button ? (button.innerText || "").replace(/\s+/g, " ").trim() : "none";
+    }, { x, y });
+    if (!hit.includes(label.slice(0, 18))) {
+      throw new Error(`not hittable at ${viewport.width}x${viewport.height}: ${label} got ${hit}`);
+    }
+  }
+}
+
 async function expandOpenSkills(page) {
   for (let round = 0; round < 6; round += 1) {
     const buttons = page.getByRole("button", { name: /Show me how:/ });
@@ -245,6 +286,7 @@ try {
   const leaked = await abortRoutedRequests(context);
   const cold = await context.newPage();
   cold.on("pageerror", (error) => errors.push(String(error)));
+  await cold.setViewportSize({ width: 430, height: 900 });
   await cold.goto(BASE);
   await cold.getByRole("heading", { name: "Where are you?" }).waitFor();
 
@@ -259,11 +301,12 @@ try {
   await expandOpenSkills(cold);
   const knife = cold.getByRole("button", { name: "Show me how: Hold a knife safely" });
   if ((await knife.getAttribute("aria-expanded")) !== "true") throw new Error("depth 3 skill did not expand");
-  await cold.getByText("Grip the handle, not the blade.").waitFor();
+  await cold.getByText("Cut away from your legs.").waitFor();
+  await cold.setViewportSize({ width: 430, height: 900 });
   await cold.locator("[data-node='fire.materials']").screenshot({ path: "evidence/phase-1b/skill-normal.png" });
   await cold.reload();
   await cold.locator("[data-node='fire.materials']").waitFor();
-  await cold.getByText("Grip the handle, not the blade.").waitFor();
+  await cold.getByText("Cut away from your legs.").waitFor();
   await button(cold, "Show me how: Process fatwood").click();
   if ((await cold.getByText("Split the pine knot to the shiny core.").count()) !== 0) throw new Error("collapse left the skill open");
   const handle = cold.locator("[data-step='fire.materials.m4'] [data-hold-handle]");
@@ -360,6 +403,23 @@ try {
   await openFire(cold);
   await button(cold, "Someone is too cold").click();
   await cold.getByText("A small fire close by.").waitFor();
+  for (const [width, height] of [
+    [360, 640],
+    [390, 844],
+    [430, 900],
+  ]) {
+    await cold.setViewportSize({ width, height });
+    await cold.waitForTimeout(100);
+    const showButtons = cold.getByRole("button", { name: /Show me how:/ });
+    const total = await showButtons.count();
+    if (total < 1) throw new Error(`no show-me buttons at ${width}x${height}`);
+    for (let index = 0; index < total; index += 1) {
+      await assertFullyHittable(cold, showButtons.nth(index));
+    }
+    await assertFullyHittable(cold, cold.getByRole("button", { name: "Get a grown-up: hold 3 seconds" }));
+    log(`PASS hit ${width}x${height}`);
+  }
+  await cold.setViewportSize({ width: 430, height: 900 });
   const showFire = button(cold, "Show me how: Keep a fire going");
   if (await showFire.isEnabled()) throw new Error("danger skill was enabled before the gate");
   if ((await cold.getByText("Open a gap so air hits the base.").count()) !== 0) throw new Error("danger skill steps were visible");
@@ -386,6 +446,7 @@ try {
   await cold.getByText("Open a gap so air hits the base.").waitFor();
   await cold.getByText("Do not light a fire in a closed tent.").waitFor();
   await cold.locator("[data-node='fire.hypothermia']").screenshot({ path: "evidence/phase-1b/skill-kid.png" });
+  log("PASS kid gate 430x900");
   log("PASS kid skill gate");
 
   if (leaked.length) throw new Error(`network after offline: ${leaked.join(" | ")}`);

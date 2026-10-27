@@ -4,7 +4,10 @@
   "pictogram": "knife",
   "danger": "blade",
   "kid_text": "A grown-up hits the knife with a stick.",
-  "safety": [],
+  "safety": [
+    "A folder can close on your hand. Use a fixed blade.",
+    "Keep your legs out of the swing."
+  ],
   "steps": [
     {
       "text": "Grip the knife the safe way.",
@@ -12,12 +15,20 @@
       "skill": "hold_knife_safely"
     },
     {
+      "text": "Use a fixed blade. Never use a folder.",
+      "pictogram": "knife"
+    },
+    {
       "text": "Set the blade on the end of the wood.",
       "pictogram": "knife"
     },
     {
-      "text": "Tap the knife back with a stout stick.",
+      "text": "Strike the spine past the wood, not the handle.",
       "pictogram": "fuel"
+    },
+    {
+      "text": "Keep your hands and legs clear.",
+      "pictogram": "warning"
     },
     {
       "text": "Stop when the wood splits.",
@@ -26,8 +37,13 @@
   ],
   "mistakes": [
     {
-      "text": "Your hand is in front of the blade.",
-      "fix": "Move that hand behind the knife.",
+      "text": "You use a folding knife.",
+      "fix": "Use a fixed blade only.",
+      "pictogram": "knife"
+    },
+    {
+      "text": "You hit the handle.",
+      "fix": "Strike the spine past the wood.",
       "pictogram": "warning"
     }
   ]

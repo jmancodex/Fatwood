@@ -3,24 +3,26 @@
   "title": "Strike a match",
   "pictogram": "matches",
   "danger": "fire",
-  "kid_text": "A grown-up should light the match.",
-  "safety": [],
+  "kid_text": "A grown-up strikes the match away from you.",
+  "safety": [
+    "The flame can reach your fingers. Shake it out first."
+  ],
   "steps": [
     {
-      "text": "Kneel with your back to the wind.",
-      "pictogram": "wind"
-    },
-    {
-      "text": "Cup one hand around the match.",
+      "text": "Close the box before you strike.",
       "pictogram": "matches"
     },
     {
-      "text": "Hold the match by the end.",
+      "text": "Strike the strip away from your body.",
       "pictogram": "matches"
     },
     {
-      "text": "Strike it away from your body.",
+      "text": "Tilt the match head down so it catches.",
       "pictogram": "matches"
+    },
+    {
+      "text": "Shake it out before the flame hits your fingers.",
+      "pictogram": "warning"
     },
     {
       "text": "Touch the flame to the fluffy nest.",
@@ -34,9 +36,9 @@
       "pictogram": "wind"
     },
     {
-      "text": "You light a thick stick first.",
-      "fix": "Light the fluffy nest first.",
-      "pictogram": "tinder"
+      "text": "The flame runs to your fingers.",
+      "fix": "Shake it out and drop it.",
+      "pictogram": "warning"
     }
   ]
 }

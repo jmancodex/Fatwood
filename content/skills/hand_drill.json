@@ -4,7 +4,9 @@
   "pictogram": "handdrill",
   "danger": "fire",
   "kid_text": "Spin a dry stick until it smokes.",
-  "safety": [],
+  "safety": [
+    "Stop if your palms blister."
+  ],
   "steps": [
     {
       "text": "Use a long straight dry spindle.",

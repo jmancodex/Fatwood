@@ -1,24 +1,327 @@
-id | title | mean | max | steps
-bank_fire_overnight | Bank a fire overnight | 0.61 | 3.65 | 5
-baton_knife | Baton with a knife | -1.06 | -0.28 | 4
-blow_ember_to_flame | Blow an ember to flame | -0.72 | 0.63 | 5
-bow_drill | Use a bow drill | 0.53 | 2.34 | 5
-build_lean_to_lay | Build a lean-to lay | 0.17 | 2.28 | 4
-build_log_cabin_lay | Build a log cabin lay | 0.13 | 0.80 | 4
-build_platform_fire | Build a platform fire | 0.66 | 4.00 | 5
-build_teepee_lay | Build a teepee lay | 1.87 | 4.00 | 4
-build_tinder_bundle | Build a tinder bundle | -0.37 | 0.52 | 4
-collect_tinder_kindling_fuel | Collect tinder, kindling, and fuel | 0.31 | 2.31 | 5
-dry_wet_wood | Dry wet wood | 0.27 | 2.31 | 4
-find_fatwood | Find fatwood | -0.31 | 0.52 | 5
-fire_co_safety | Keep the air safe | 0.44 | 2.28 | 5
-hand_drill | Use a hand drill | -0.19 | 0.52 | 5
-hold_knife_safely | Hold a knife safely | 0.47 | 2.48 | 4
-keep_fire_going | Keep a fire going | 0.93 | 2.48 | 5
-make_feather_stick | Make a feather stick | -0.74 | 0.52 | 5
-pick_fire_site | Pick a fire site | 0.26 | 2.48 | 5
-process_fatwood | Process fatwood | -0.39 | 0.80 | 4
-put_fire_out | Put a fire out | -0.24 | 2.88 | 5
-strike_match | Strike a match | 0.22 | 2.48 | 5
-use_ferro_rod | Use a ferro rod | 0.61 | 0.63 | 5
-use_lighter | Use a lighter | -0.23 | 2.31 | 5
+id | title | mean | max | steps | safety | mistakes
+bank_fire_overnight | Bank a fire overnight | 1.93 | 4.45 | 5 | 3 | 4
+baton_knife | Baton with a knife | -0.52 | 2.20 | 6 | 2 | 4
+battery_foil_wrapper | Light with foil | 0.06 | 2.48 | 5 | 2 | 4
+battery_steel_wool | Light with steel wool | 0.09 | 0.63 | 5 | 2 | 4
+blow_ember_to_flame | Blow an ember to flame | -0.72 | 0.63 | 5 | 1 | 2
+bow_drill | Use a bow drill | -0.11 | 2.28 | 10 | 1 | 4
+build_lean_to_lay | Build a lean-to lay | 0.17 | 2.28 | 4 | 1 | 2
+build_log_cabin_lay | Build a log cabin lay | 0.13 | 0.80 | 4 | 1 | 2
+build_platform_fire | Build a platform fire | 0.66 | 4.00 | 5 | 2 | 2
+build_teepee_lay | Build a teepee lay | 1.87 | 4.00 | 4 | 1 | 2
+build_tinder_bundle | Build a tinder bundle | -0.37 | 0.52 | 4 | 1 | 2
+choose_ignition | Pick how to light it | 0.21 | 1.03 | 6 | 1 | 4
+collect_tinder_kindling_fuel | Collect tinder, kindling, and fuel | 0.31 | 2.31 | 5 | 0 | 2
+dakota_fire_hole | Dig a Dakota hole | 1.06 | 2.31 | 5 | 1 | 4
+dry_wet_wood | Dry wet wood | 0.27 | 2.31 | 4 | 1 | 2
+find_fatwood | Find fatwood | -0.31 | 0.52 | 5 | 0 | 2
+fire_co_safety | Keep the air safe | 0.29 | 3.65 | 6 | 3 | 4
+fire_plough | Use a fire plough | 0.20 | 1.29 | 5 | 1 | 4
+fuel_without_wood | Burn fuel with no trees | 0.31 | 2.48 | 6 | 1 | 4
+hand_drill | Use a hand drill | -0.19 | 0.52 | 5 | 1 | 2
+hold_knife_safely | Hold a knife safely | 0.00 | 0.52 | 4 | 1 | 4
+keep_fire_going | Keep a fire going | 0.93 | 2.48 | 5 | 1 | 2
+lens_fire | Light with a lens | 1.04 | 2.65 | 5 | 1 | 4
+make_feather_stick | Make a feather stick | -0.74 | 0.52 | 5 | 1 | 2
+pick_fire_site | Pick a fire site | 0.26 | 2.48 | 5 | 2 | 2
+process_fatwood | Process fatwood | -0.39 | 0.80 | 4 | 1 | 2
+put_fire_out | Put a fire out | 0.29 | 1.03 | 6 | 2 | 4
+star_fire | Lay a star fire | -0.31 | 0.63 | 5 | 1 | 4
+strike_match | Strike a match | 1.32 | 2.34 | 5 | 1 | 4
+use_ferro_rod | Use a ferro rod | 0.25 | 0.80 | 5 | 1 | 4
+use_lighter | Use a lighter | -0.23 | 2.31 | 5 | 1 | 4
+
+kind | id | grade | words | text
+step | bank_fire_overnight | 0.52 | 6 | Rake the coals into one pile.
+step | bank_fire_overnight | 0.52 | 5 | Cover that pile with ash.
+step | bank_fire_overnight | 0.52 | 6 | Clear the ground around the fire.
+step | bank_fire_overnight | 4.45 | 6 | Sleep away from anything that burns.
+step | bank_fire_overnight | 3.65 | 9 | Do not take the fire into a closed shelter.
+safety | bank_fire_overnight | 2.65 | 11 | Never make a fire in a closed tent or snow cave.
+safety | bank_fire_overnight | 1.29 | 10 | The smoke has a gas you cannot see or smell.
+safety | bank_fire_overnight | -1.84 | 5 | That gas can kill you.
+mistake | bank_fire_overnight | -1.45 | 6 | You sleep next to tall flame.
+mistake | bank_fire_overnight | -1.45 | 6 | Let it fall to coals first.
+mistake | bank_fire_overnight | -1.06 | 7 | Dry grass is still near the coals.
+mistake | bank_fire_overnight | 0.52 | 6 | Clear the ground before you sleep.
+step | baton_knife | -1.45 | 6 | Grip the knife the safe way.
+step | baton_knife | 2.20 | 8 | Use a fixed blade. Never use a folder.
+step | baton_knife | -0.28 | 9 | Set the blade on the end of the wood.
+step | baton_knife | -0.28 | 9 | Strike the spine past the wood, not the handle.
+step | baton_knife | -1.45 | 6 | Keep your hands and legs clear.
+step | baton_knife | -1.84 | 5 | Stop when the wood splits.
+safety | baton_knife | 0.50 | 11 | A folder can close on your hand. Use a fixed blade.
+safety | baton_knife | -1.06 | 7 | Keep your legs out of the swing.
+mistake | baton_knife | 0.52 | 5 | You use a folding knife.
+mistake | baton_knife | 2.88 | 5 | Use a fixed blade only.
+mistake | baton_knife | -2.23 | 4 | You hit the handle.
+mistake | baton_knife | -1.45 | 6 | Strike the spine past the wood.
+step | battery_foil_wrapper | -0.67 | 8 | Cut the foil so the middle is thin.
+step | battery_foil_wrapper | 2.48 | 6 | Put tinder under that thin spot.
+step | battery_foil_wrapper | -0.28 | 9 | Touch each end of the foil to the cell.
+step | battery_foil_wrapper | -1.84 | 5 | The thin spot gets hot.
+step | battery_foil_wrapper | 0.63 | 7 | Keep your fingers off the hot spot.
+safety | battery_foil_wrapper | -2.03 | 9 | Foil gets hot fast. Keep it off your skin.
+safety | battery_foil_wrapper | 0.52 | 5 | Do not open the cell.
+mistake | battery_foil_wrapper | -0.28 | 9 | The foil is the same width all the way.
+mistake | battery_foil_wrapper | 0.63 | 7 | Make the middle into a thin neck.
+mistake | battery_foil_wrapper | -1.84 | 5 | You pinch the hot middle.
+mistake | battery_foil_wrapper | -1.45 | 6 | Hold the foil by the ends.
+step | battery_steel_wool | -1.06 | 7 | Pull a thin wisp of steel wool.
+step | battery_steel_wool | 0.52 | 6 | Lay that wisp on the tinder.
+step | battery_steel_wool | -0.28 | 9 | Touch both ends of the cell to the wool.
+step | battery_steel_wool | 0.63 | 7 | Let the flare fall into the nest.
+step | battery_steel_wool | 0.63 | 7 | Keep the cell away from your face.
+safety | battery_steel_wool | -0.72 | 9 | The wool flares fast. Keep it off your face.
+safety | battery_steel_wool | 0.52 | 5 | Do not open the cell.
+mistake | battery_steel_wool | -1.06 | 7 | You hold the wool near your face.
+mistake | battery_steel_wool | 0.52 | 6 | Point it down into the nest.
+mistake | battery_steel_wool | -1.45 | 6 | The wool is a thick pad.
+mistake | battery_steel_wool | 0.52 | 6 | Pull it into a thin wisp.
+step | blow_ember_to_flame | 0.63 | 7 | Nest the glowing coal in the fluff.
+step | blow_ember_to_flame | -1.06 | 7 | Hold the nest off the wet ground.
+step | blow_ember_to_flame | -1.45 | 6 | Blow with a long soft breath.
+step | blow_ember_to_flame | -1.06 | 7 | Stop if ash flies at your face.
+step | blow_ember_to_flame | -0.67 | 8 | Add a thin stick when you see flame.
+safety | blow_ember_to_flame | 1.03 | 9 | Blow gently so ash stays out of your eyes.
+mistake | blow_ember_to_flame | -1.06 | 7 | You puff hard and the coal dies.
+mistake | blow_ember_to_flame | 0.52 | 6 | Blow like you are cooling soup.
+step | bow_drill | 0.63 | 7 | Pick dry soft wood for both pieces.
+step | bow_drill | -1.06 | 7 | The spindle is a straight dry stick.
+step | bow_drill | -1.06 | 7 | The hearth is a flat dry board.
+step | bow_drill | 2.28 | 8 | The bearing block is a hard palm-size piece.
+step | bow_drill | -1.06 | 7 | Cut a small pit in the hearth.
+step | bow_drill | -0.28 | 9 | Cut a notch from that pit to the edge.
+step | bow_drill | 1.03 | 9 | Press down and pull the bow in long strokes.
+step | bow_drill | -1.45 | 6 | Stop when thick smoke pours out.
+step | bow_drill | -0.67 | 8 | Catch the coal on a chip of bark.
+step | bow_drill | 0.52 | 6 | Move that coal into the nest.
+safety | bow_drill | -1.64 | 11 | The coal is hot. Do not hold it in your hand.
+mistake | bow_drill | -0.28 | 9 | The string is so tight it will not move.
+mistake | bow_drill | 2.48 | 6 | Loosen it until the spindle turns.
+mistake | bow_drill | 0.52 | 6 | The wood is green and shiny.
+mistake | bow_drill | -1.06 | 7 | Use dead wood that you can dent.
+step | build_lean_to_lay | -1.06 | 7 | Brace one thick stick at an angle.
+step | build_lean_to_lay | -1.06 | 7 | Lean thin sticks on the calm side.
+step | build_lean_to_lay | 0.52 | 6 | Light the nest under those sticks.
+step | build_lean_to_lay | 2.28 | 8 | Point the open side away from the wind.
+safety | build_lean_to_lay | 0.52 | 6 | Keep the flame off your clothes.
+mistake | build_lean_to_lay | 2.48 | 6 | The open side faces the rain.
+mistake | build_lean_to_lay | -0.67 | 8 | Turn it so the sticks block the rain.
+step | build_log_cabin_lay | 0.80 | 8 | Light a small cone in the center first.
+step | build_log_cabin_lay | 0.63 | 7 | Lay two sticks, then two across them.
+step | build_log_cabin_lay | -1.45 | 6 | Leave gaps so air can move.
+step | build_log_cabin_lay | 0.52 | 6 | Wait for coals before you cook.
+safety | build_log_cabin_lay | 0.80 | 8 | Wait for coals before a pot goes on.
+mistake | build_log_cabin_lay | -0.67 | 8 | You put a pot on the first flame.
+mistake | build_log_cabin_lay | 2.31 | 7 | Wait until the sticks fall into coals.
+step | build_platform_fire | -1.45 | 6 | Lay two layers of green logs.
+step | build_platform_fire | 0.63 | 7 | Make the floor wider than the fire.
+step | build_platform_fire | 4.00 | 7 | Add dry rocks only, never wet ones.
+step | build_platform_fire | -0.67 | 8 | Build the fire on top of that floor.
+step | build_platform_fire | 0.80 | 8 | Leave a hole so fresh air can enter.
+safety | build_platform_fire | -0.75 | 8 | Wet rocks can burst. Use dry rocks only.
+safety | build_platform_fire | 2.65 | 11 | Never make a fire in a closed tent or snow cave.
+mistake | build_platform_fire | -1.06 | 7 | You set the fire on the snow.
+mistake | build_platform_fire | -1.84 | 5 | Put green logs down first.
+step | build_teepee_lay | 2.31 | 7 | Set the burning nest in the center.
+step | build_teepee_lay | 0.52 | 6 | Lean thin sticks into a cone.
+step | build_teepee_lay | 0.63 | 7 | Leave a door on the windy side.
+step | build_teepee_lay | 4.00 | 7 | Add thicker sticks only after it roars.
+safety | build_teepee_lay | 2.48 | 6 | Do not build under dead branches.
+mistake | build_teepee_lay | 0.63 | 7 | You close the door and it smokes.
+mistake | build_teepee_lay | -1.84 | 5 | Leave a gap for air.
+step | build_tinder_bundle | -0.67 | 8 | Make a nest the size of your fist.
+step | build_tinder_bundle | -0.67 | 8 | Use fluff that is dry in the middle.
+step | build_tinder_bundle | -0.67 | 8 | Keep the nest loose so air gets in.
+step | build_tinder_bundle | 0.52 | 6 | Set the flame under the nest.
+safety | build_tinder_bundle | 0.63 | 7 | Light the nest away from your face.
+mistake | build_tinder_bundle | 0.63 | 7 | The nest is wet on the inside.
+mistake | build_tinder_bundle | -0.67 | 8 | Split a stick and use the dry core.
+step | choose_ignition | 0.63 | 7 | Use a lighter if you have one.
+step | choose_ignition | 0.80 | 8 | Use a ferro rod if you have one.
+step | choose_ignition | 0.52 | 6 | Use matches if you have them.
+step | choose_ignition | 1.03 | 9 | Use the sun only when the sky is bright.
+step | choose_ignition | -0.67 | 8 | A cell and steel wool can make heat.
+step | choose_ignition | -1.06 | 7 | A bow drill works with no tool.
+safety | choose_ignition | 2.47 | 10 | Do not start a flame until the nest is ready.
+mistake | choose_ignition | 0.80 | 8 | You skip a lighter and start a drill.
+mistake | choose_ignition | 0.52 | 6 | Use the easiest tool you have.
+mistake | choose_ignition | -1.45 | 6 | The nest is not built yet.
+mistake | choose_ignition | -2.23 | 4 | Build the nest first.
+step | collect_tinder_kindling_fuel | 2.28 | 8 | Tinder is fluff no thicker than a match.
+step | collect_tinder_kindling_fuel | 2.31 | 7 | Kindling is no thicker than your thumb.
+step | collect_tinder_kindling_fuel | -1.06 | 7 | Fuel is as thick as your wrist.
+step | collect_tinder_kindling_fuel | -2.62 | 6 | Snap each stick. It must break.
+step | collect_tinder_kindling_fuel | 0.63 | 7 | Gather twice what you think you need.
+mistake | collect_tinder_kindling_fuel | -1.06 | 7 | A stick bends and will not snap.
+mistake | collect_tinder_kindling_fuel | -0.74 | 7 | It is too wet. Set it aside.
+step | dakota_fire_hole | 1.03 | 9 | Dig a pit about as wide as your boot.
+step | dakota_fire_hole | 0.80 | 8 | Dig a second hole on the wind side.
+step | dakota_fire_hole | 2.31 | 7 | Join the holes with a low tunnel.
+step | dakota_fire_hole | 0.52 | 5 | Keep the wind hole open.
+step | dakota_fire_hole | 0.63 | 7 | Clear dry grass back from both holes.
+safety | dakota_fire_hole | -0.47 | 12 | A hole fire is still a fire. Clear the grass around it.
+mistake | dakota_fire_hole | -1.06 | 7 | You block the air hole with wood.
+mistake | dakota_fire_hole | 0.72 | 4 | Leave that hole open.
+mistake | dakota_fire_hole | -1.84 | 5 | You dig in dry peat.
+mistake | dakota_fire_hole | -1.06 | 7 | Use bare dirt, not peat or duff.
+step | dry_wet_wood | -0.28 | 9 | Take a dead branch that is off the ground.
+step | dry_wet_wood | 0.52 | 6 | Split it to the dry inside.
+step | dry_wet_wood | 2.31 | 7 | The inside feels warmer than the shell.
+step | dry_wet_wood | -1.45 | 6 | Shave curls from that dry core.
+safety | dry_wet_wood | 0.52 | 10 | A blade can cut you. Cut away from your body.
+mistake | dry_wet_wood | 2.34 | 9 | You burn the wet shell and it only smokes.
+mistake | dry_wet_wood | 0.52 | 6 | Split it and use the inside.
+step | find_fatwood | -1.45 | 6 | Look for a dead pine stump.
+step | find_fatwood | -0.67 | 8 | Look for a knot that will not rot.
+step | find_fatwood | -0.46 | 5 | Smell it. Fatwood smells sharp.
+step | find_fatwood | 0.52 | 5 | The good wood looks glassy.
+step | find_fatwood | 0.52 | 5 | Shave off the wet outside.
+mistake | find_fatwood | 0.52 | 6 | You take the soft wet outside.
+mistake | find_fatwood | 2.31 | 7 | Carve in until the wood looks glassy.
+step | fire_co_safety | 1.03 | 9 | Do not light a fire in a closed tent.
+step | fire_co_safety | 1.03 | 9 | Do not light one in a closed snow cave.
+step | fire_co_safety | -1.06 | 7 | Leave a high hole for the smoke.
+step | fire_co_safety | -1.06 | 7 | Leave a low hole for fresh air.
+step | fire_co_safety | 3.65 | 9 | A headache or a dizzy feeling means bad air.
+step | fire_co_safety | -1.84 | 5 | Get to fresh air now.
+safety | fire_co_safety | 2.65 | 11 | Never make a fire in a closed tent or snow cave.
+safety | fire_co_safety | 1.29 | 10 | The smoke has a gas you cannot see or smell.
+safety | fire_co_safety | -1.84 | 5 | That gas can kill you.
+mistake | fire_co_safety | -1.06 | 7 | You close the door on the fire.
+mistake | fire_co_safety | 0.80 | 8 | Open a hole or move the fire out.
+mistake | fire_co_safety | 0.52 | 6 | You stay when you feel dizzy.
+mistake | fire_co_safety | -1.84 | 5 | Get to fresh air now.
+step | fire_plough | -0.67 | 8 | Cut a groove in a soft dry board.
+step | fire_plough | 1.29 | 10 | Use a blunt stick that is harder than the board.
+step | fire_plough | 0.52 | 6 | Rub that stick along the groove.
+step | fire_plough | -0.67 | 8 | Push the hot dust to the far end.
+step | fire_plough | 0.52 | 6 | Tip the dust into the nest.
+safety | fire_plough | -2.23 | 8 | The dust gets hot. Do not touch it.
+mistake | fire_plough | -1.84 | 5 | The plough stick is sharp.
+mistake | fire_plough | -2.23 | 4 | Use a blunt end.
+mistake | fire_plough | -2.23 | 4 | The board is wet.
+mistake | fire_plough | -1.84 | 5 | Pick a dry soft board.
+step | fuel_without_wood | 2.48 | 6 | Powder dry dung so it catches.
+step | fuel_without_wood | 0.52 | 6 | Twist dry grass into a nest.
+step | fuel_without_wood | -1.45 | 6 | Dead stems that snap can burn.
+step | fuel_without_wood | -2.81 | 5 | Green stems bend. Leave them.
+step | fuel_without_wood | 0.80 | 8 | Look for tiny dead sticks on high ground.
+step | fuel_without_wood | 2.31 | 7 | Gather a big pile before you light.
+safety | fuel_without_wood | -1.64 | 11 | Sparks in dry grass can run. Clear a bare spot first.
+mistake | fuel_without_wood | -1.06 | 7 | A stem bends and will not snap.
+mistake | fuel_without_wood | -0.74 | 7 | It is too wet. Set it aside.
+mistake | fuel_without_wood | 0.52 | 5 | You light a tiny pile.
+mistake | fuel_without_wood | 2.88 | 5 | Gather more before you strike.
+step | hand_drill | -1.45 | 6 | Use a long straight dry spindle.
+step | hand_drill | 0.52 | 5 | Spin it between your palms.
+step | hand_drill | -1.06 | 7 | Press down as your hands slide down.
+step | hand_drill | 0.52 | 6 | Stop when the brown dust smokes.
+step | hand_drill | 0.52 | 6 | Tip that coal into the nest.
+safety | hand_drill | 0.52 | 5 | Stop if your palms blister.
+mistake | hand_drill | -1.45 | 6 | The spindle is green and bends.
+mistake | hand_drill | -1.84 | 5 | Use a dead dry stick.
+step | hold_knife_safely | -0.75 | 8 | Sit down. Put your elbows on your knees.
+step | hold_knife_safely | 0.52 | 5 | Cut away from your legs.
+step | hold_knife_safely | 0.52 | 5 | Keep people one arm away.
+step | hold_knife_safely | -0.28 | 9 | Close the knife or sheathe it when you stop.
+safety | hold_knife_safely | 0.52 | 10 | A blade can cut you. Cut away from your body.
+mistake | hold_knife_safely | 0.52 | 5 | You cut toward your leg.
+mistake | hold_knife_safely | 0.52 | 6 | Turn the blade the other way.
+mistake | hold_knife_safely | 0.52 | 5 | You leave the blade open.
+mistake | hold_knife_safely | -0.67 | 8 | Close it or put it in a sheath.
+step | keep_fire_going | 0.80 | 8 | Open a gap so air hits the base.
+step | keep_fire_going | 2.48 | 6 | Add fluff if it only smokes.
+step | keep_fire_going | -1.06 | 7 | Add one thin stick at a time.
+step | keep_fire_going | 0.11 | 10 | Do not lay a thick log on a new flame.
+step | keep_fire_going | 2.31 | 7 | Near a shelter, keep the air moving.
+safety | keep_fire_going | 0.80 | 8 | Do not lean your face into the smoke.
+mistake | keep_fire_going | 0.63 | 7 | You pile on wrist-thick wood too soon.
+mistake | keep_fire_going | 1.29 | 10 | Wait until the flame is the size of two hands.
+step | lens_fire | 2.65 | 11 | Use a lens, clear glasses, a water bottle, or clear ice.
+step | lens_fire | 0.80 | 8 | Aim a tiny bright dot on dark fluff.
+step | lens_fire | 2.31 | 7 | Hold the dot still until it smokes.
+step | lens_fire | -1.06 | 7 | A wide pale spot will not catch.
+step | lens_fire | 0.52 | 6 | Move the coal into the nest.
+safety | lens_fire | -1.45 | 12 | Do not look at the bright dot. It can hurt your eyes.
+mistake | lens_fire | -0.67 | 8 | The spot of light is big and pale.
+mistake | lens_fire | 2.28 | 8 | Move the lens until the dot is tiny.
+mistake | lens_fire | 0.52 | 5 | You use this under cloud.
+mistake | lens_fire | 0.52 | 6 | Wait for a bright open sky.
+step | make_feather_stick | -1.45 | 6 | Hold the knife the safe way.
+step | make_feather_stick | -0.28 | 9 | Split a dead stick that is off the ground.
+step | make_feather_stick | 0.52 | 6 | Shave thin curls toward the base.
+step | make_feather_stick | -1.45 | 6 | Leave the curls on the stick.
+step | make_feather_stick | -1.06 | 7 | Light the curls at the low end.
+safety | make_feather_stick | 0.52 | 10 | A blade can cut you. Cut away from your body.
+mistake | make_feather_stick | -1.06 | 7 | You cut the curls off the stick.
+mistake | make_feather_stick | 5.25 | 3 | Leave them attached.
+step | pick_fire_site | 0.52 | 5 | Look up for dead branches.
+step | pick_fire_site | 2.48 | 6 | Do not build under those branches.
+step | pick_fire_site | 0.80 | 8 | Clear a circle about three big steps wide.
+step | pick_fire_site | -1.84 | 5 | Scrape down to bare dirt.
+step | pick_fire_site | -0.67 | 8 | Block the wind, but let the smoke leave.
+safety | pick_fire_site | 0.11 | 10 | In dry grass or high wind, scrape to bare dirt.
+safety | pick_fire_site | 2.88 | 5 | Keep water or dirt ready.
+mistake | pick_fire_site | 0.52 | 6 | You build on leaves or moss.
+mistake | pick_fire_site | -1.84 | 5 | Scrape to bare dirt first.
+step | process_fatwood | 0.80 | 8 | Split the pine knot to the shiny core.
+step | process_fatwood | -1.45 | 6 | Shave thin curls off that core.
+step | process_fatwood | 0.52 | 6 | Keep the curls loose, not packed.
+step | process_fatwood | -1.45 | 6 | Light the curls at one edge.
+safety | process_fatwood | 0.52 | 10 | A blade can cut you. Cut away from your body.
+mistake | process_fatwood | 0.80 | 8 | You pack the curls into a tight ball.
+mistake | process_fatwood | -1.06 | 7 | Leave them loose so air gets in.
+step | put_fire_out | -0.28 | 9 | Hold the back of your hand near the coals.
+step | put_fire_out | -0.67 | 8 | If it feels hot, do not touch it.
+step | put_fire_out | 1.03 | 9 | Pour water on the coals if you have it.
+step | put_fire_out | 0.63 | 7 | If you have no water, use dirt.
+step | put_fire_out | 0.52 | 6 | Stir the ash and pour again.
+step | put_fire_out | 0.52 | 6 | Leave only when it feels cool.
+safety | put_fire_out | -1.06 | 7 | A gray fire can still burn you.
+safety | put_fire_out | 0.52 | 6 | Feel for heat before you leave.
+mistake | put_fire_out | -1.06 | 7 | You touch the coals with your palm.
+mistake | put_fire_out | -1.06 | 7 | Use the back of your hand first.
+mistake | put_fire_out | -1.06 | 7 | You leave while it still feels warm.
+mistake | put_fire_out | 0.52 | 5 | Add more water or dirt.
+step | star_fire | -1.06 | 7 | Let a small bed of coals form.
+step | star_fire | -1.06 | 7 | Point four thick logs at that bed.
+step | star_fire | 0.63 | 7 | Leave a gap between the log ends.
+step | star_fire | -0.67 | 8 | Push a log in when its end burns.
+step | star_fire | 0.63 | 7 | Pull the logs apart if you leave.
+safety | star_fire | 3.76 | 8 | Pull the logs apart before you walk away.
+mistake | star_fire | 0.80 | 8 | The log ends touch and smother the coals.
+mistake | star_fire | -1.45 | 6 | Leave a small gap for air.
+mistake | star_fire | -0.67 | 8 | You walk off with the logs still in.
+mistake | star_fire | 0.72 | 4 | Pull them apart first.
+step | strike_match | 0.52 | 6 | Close the box before you strike.
+step | strike_match | 2.31 | 7 | Strike the strip away from your body.
+step | strike_match | 0.80 | 8 | Tilt the match head down so it catches.
+step | strike_match | 2.34 | 9 | Shake it out before the flame hits your fingers.
+step | strike_match | 0.63 | 7 | Touch the flame to the fluffy nest.
+safety | strike_match | -0.66 | 10 | The flame can reach your fingers. Shake it out first.
+mistake | strike_match | -2.23 | 4 | You face the wind.
+mistake | strike_match | -1.45 | 6 | Turn your back to the wind.
+mistake | strike_match | 0.52 | 6 | The flame runs to your fingers.
+mistake | strike_match | -1.45 | 6 | Shake it out and drop it.
+step | use_ferro_rod | 0.80 | 8 | Put the rod tip low in the tinder.
+step | use_ferro_rod | 0.63 | 7 | Hold the scraper at a steep angle.
+step | use_ferro_rod | 0.63 | 7 | A knife spine can be the scraper.
+step | use_ferro_rod | 0.63 | 7 | Pull the rod back, not the scraper.
+step | use_ferro_rod | -1.45 | 6 | Keep the sparks in the nest.
+safety | use_ferro_rod | -0.66 | 10 | Sparks can burn skin. Keep your hands behind the rod.
+mistake | use_ferro_rod | 2.31 | 7 | You push the scraper into the nest.
+mistake | use_ferro_rod | 0.52 | 5 | Pull the rod back instead.
+mistake | use_ferro_rod | 0.80 | 8 | You hold the tip up above the nest.
+mistake | use_ferro_rod | 0.63 | 7 | Put the tip low in the tinder.
+step | use_lighter | 2.31 | 7 | Warm a cold lighter in your pocket.
+step | use_lighter | -1.45 | 6 | Turn your back to the wind.
+step | use_lighter | -1.45 | 6 | Spin the wheel with your thumb.
+step | use_lighter | 0.52 | 6 | Hold the flame under the nest.
+step | use_lighter | -1.06 | 7 | Add one thin stick at a time.
+safety | use_lighter | 0.63 | 7 | Point the flame away from your sleeve.
+mistake | use_lighter | 0.63 | 7 | The lighter is too cold to spark.
+mistake | use_lighter | 0.52 | 6 | Warm it in a pocket first.
+mistake | use_lighter | -1.45 | 6 | You dump the whole pile on.
+mistake | use_lighter | -2.23 | 4 | Add one thin stick.

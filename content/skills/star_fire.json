@@ -1,0 +1,44 @@
+{
+  "id": "star_fire",
+  "title": "Lay a star fire",
+  "pictogram": "starfire",
+  "danger": "fire",
+  "kid_text": "Point big sticks at the coals.",
+  "safety": [
+    "Pull the logs apart before you walk away."
+  ],
+  "steps": [
+    {
+      "text": "Let a small bed of coals form.",
+      "pictogram": "fire"
+    },
+    {
+      "text": "Point four thick logs at that bed.",
+      "pictogram": "starfire"
+    },
+    {
+      "text": "Leave a gap between the log ends.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Push a log in when its end burns.",
+      "pictogram": "fuel"
+    },
+    {
+      "text": "Pull the logs apart if you leave.",
+      "pictogram": "warning"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "The log ends touch and smother the coals.",
+      "fix": "Leave a small gap for air.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "You walk off with the logs still in.",
+      "fix": "Pull them apart first.",
+      "pictogram": "warning"
+    }
+  ]
+}

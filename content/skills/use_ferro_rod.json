@@ -4,27 +4,29 @@
   "pictogram": "ferro",
   "danger": "fire",
   "kid_text": "Pull the rod back. A grown-up scrapes.",
-  "safety": [],
+  "safety": [
+    "Sparks can burn skin. Keep your hands behind the rod."
+  ],
   "steps": [
     {
-      "text": "Put the ferro rod in the nest.",
+      "text": "Put the rod tip low in the tinder.",
       "pictogram": "ferro"
     },
     {
-      "text": "Press the scraper hard on the rod.",
+      "text": "Hold the scraper at a steep angle.",
       "pictogram": "ferro"
+    },
+    {
+      "text": "A knife spine can be the scraper.",
+      "pictogram": "knife"
     },
     {
       "text": "Pull the rod back, not the scraper.",
       "pictogram": "ferro"
     },
     {
-      "text": "Aim the sparks into the nest.",
+      "text": "Keep the sparks in the nest.",
       "pictogram": "tinder"
-    },
-    {
-      "text": "Blow gently when you see a glow.",
-      "pictogram": "oxygen"
     }
   ],
   "mistakes": [
@@ -34,9 +36,9 @@
       "pictogram": "ferro"
     },
     {
-      "text": "You blow so hard the glow dies.",
-      "fix": "Use a long soft breath.",
-      "pictogram": "oxygen"
+      "text": "You hold the tip up above the nest.",
+      "fix": "Put the tip low in the tinder.",
+      "pictogram": "tinder"
     }
   ]
 }

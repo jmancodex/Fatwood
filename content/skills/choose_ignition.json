@@ -1,0 +1,48 @@
+{
+  "id": "choose_ignition",
+  "title": "Pick how to light it",
+  "pictogram": "fire",
+  "danger": "fire",
+  "kid_text": "Pick the easiest way to light it.",
+  "safety": [
+    "Do not start a flame until the nest is ready."
+  ],
+  "steps": [
+    {
+      "text": "Use a lighter if you have one.",
+      "pictogram": "lighter"
+    },
+    {
+      "text": "Use a ferro rod if you have one.",
+      "pictogram": "ferro"
+    },
+    {
+      "text": "Use matches if you have them.",
+      "pictogram": "matches"
+    },
+    {
+      "text": "Use the sun only when the sky is bright.",
+      "pictogram": "sun"
+    },
+    {
+      "text": "A cell and steel wool can make heat.",
+      "pictogram": "battery"
+    },
+    {
+      "text": "A bow drill works with no tool.",
+      "pictogram": "bowdrill"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You skip a lighter and start a drill.",
+      "fix": "Use the easiest tool you have.",
+      "pictogram": "lighter"
+    },
+    {
+      "text": "The nest is not built yet.",
+      "fix": "Build the nest first.",
+      "pictogram": "tinder"
+    }
+  ]
+}

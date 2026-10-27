@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import type { KeyboardEvent, PointerEvent as ReactPointerEvent, SyntheticEvent } from "react";
 import { Pictogram } from "@/survival/pictograms/Pictogram";
 import type { Glossary, GlossaryEntry, Skill } from "@/survival/skills/types";
@@ -140,7 +141,7 @@ export function NodeView({
         </>
       )}
       {!gated && node.options.length > 0 ? (
-        <div className="sticky bottom-0 z-10 flex flex-col gap-2 bg-bg pt-2 pb-1">
+        <ActionBar>
           {node.options.map((option) => (
             <button
               key={option.id}
@@ -152,7 +153,7 @@ export function NodeView({
               <span className="font-display text-2xl tracking-wide">{kid ? option.kid_label : option.label}</span>
             </button>
           ))}
-        </div>
+        </ActionBar>
       ) : null}
       {!gated && node.type === "terminal" ? (
         <p className="text-muted" data-terminal="true">
@@ -265,11 +266,12 @@ function SkillBranch({
     <div className="mt-3">
       <button
         type="button"
-        className="tap-target flex w-full items-center gap-3 rounded-xl border border-line px-3 text-left"
+        className="show-me tap-target flex w-full items-center gap-3 rounded-xl border border-line px-3 text-left"
         aria-expanded={open}
         aria-controls={panelId}
         disabled={locked}
         onClick={() => onToggle(path)}
+        onFocus={(event) => liftAboveBar(event.currentTarget)}
         onPointerDown={(event) => event.stopPropagation()}
       >
         <span aria-hidden="true">
@@ -358,8 +360,9 @@ function SkillBody({
 }) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    if (arm.current === path) {
-      heading.current?.focus();
+    if (arm.current === path && heading.current) {
+      heading.current.focus();
+      liftAboveBar(heading.current);
       arm.current = null;
     }
   }, [arm, path]);
@@ -507,6 +510,7 @@ function HoldButton({ label, ms, onConfirm }: { label: string; ms: number; onCon
     if ("repeat" in event && event.repeat) return;
     event.preventDefault();
     const button = event.currentTarget;
+    liftAboveBar(button);
     button.dataset.holding = "true";
     const t0 = performance.now();
     cancelAnimationFrame(frame.current);
@@ -564,6 +568,7 @@ function useHold(ms: number, enabled: boolean, onDone: () => void) {
       const target = event.target;
       if (target instanceof Element && target.closest("button, a")) return;
       const el = event.currentTarget;
+      liftAboveBar(el);
       origin.current = { x: event.clientX, y: event.clientY };
       el.dataset.holding = "true";
       const t0 = performance.now();
@@ -594,6 +599,39 @@ function useHold(ms: number, enabled: boolean, onDone: () => void) {
       clear(event.currentTarget);
     },
   };
+}
+
+function ActionBar({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const apply = () => {
+      document.documentElement.style.setProperty("--action-bar", `${el.offsetHeight}px`);
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.setProperty("--action-bar", "0px");
+    };
+  }, []);
+  return (
+    <div ref={ref} data-action-bar className="action-bar">
+      {children}
+    </div>
+  );
+}
+
+function liftAboveBar(el: HTMLElement) {
+  const bar = document.querySelector("[data-action-bar]");
+  const barTop = bar ? bar.getBoundingClientRect().top : window.innerHeight;
+  const rect = el.getBoundingClientRect();
+  const limit = barTop - 12;
+  if (rect.bottom > limit) window.scrollBy(0, rect.bottom - limit);
+  const next = el.getBoundingClientRect();
+  if (next.top < 8) window.scrollBy(0, next.top - 8);
 }
 
 function pulse(pattern: number | number[]) {

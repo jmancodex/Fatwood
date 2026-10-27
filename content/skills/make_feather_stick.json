@@ -4,7 +4,9 @@
   "pictogram": "feather",
   "danger": "blade",
   "kid_text": "Shave curls. A grown-up holds the knife.",
-  "safety": [],
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
   "steps": [
     {
       "text": "Hold the knife the safe way.",

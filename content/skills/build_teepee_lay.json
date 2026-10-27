@@ -4,7 +4,9 @@
   "pictogram": "teepee",
   "danger": "fire",
   "kid_text": "Make a cone of sticks with a door.",
-  "safety": [],
+  "safety": [
+    "Do not build under dead branches."
+  ],
   "steps": [
     {
       "text": "Set the burning nest in the center.",

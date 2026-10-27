@@ -1,0 +1,44 @@
+{
+  "id": "dakota_fire_hole",
+  "title": "Dig a Dakota hole",
+  "pictogram": "dakota",
+  "danger": "fire",
+  "kid_text": "A fire in a hole stays out of the wind.",
+  "safety": [
+    "A hole fire is still a fire. Clear the grass around it."
+  ],
+  "steps": [
+    {
+      "text": "Dig a pit about as wide as your boot.",
+      "pictogram": "dakota"
+    },
+    {
+      "text": "Dig a second hole on the wind side.",
+      "pictogram": "wind"
+    },
+    {
+      "text": "Join the holes with a low tunnel.",
+      "pictogram": "dakota"
+    },
+    {
+      "text": "Keep the wind hole open.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "Clear dry grass back from both holes.",
+      "pictogram": "site"
+    }
+  ],
+  "mistakes": [
+    {
+      "text": "You block the air hole with wood.",
+      "fix": "Leave that hole open.",
+      "pictogram": "oxygen"
+    },
+    {
+      "text": "You dig in dry peat.",
+      "fix": "Use bare dirt, not peat or duff.",
+      "pictogram": "warning"
+    }
+  ]
+}

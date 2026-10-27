@@ -4,7 +4,9 @@
   "pictogram": "tinder",
   "danger": "fire",
   "kid_text": "Make a loose fluffy nest.",
-  "safety": [],
+  "safety": [
+    "Light the nest away from your face."
+  ],
   "steps": [
     {
       "text": "Make a nest the size of your fist.",

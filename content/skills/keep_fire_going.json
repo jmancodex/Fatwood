@@ -4,7 +4,9 @@
   "pictogram": "fire",
   "danger": "fire",
   "kid_text": "Give it air and thin sticks.",
-  "safety": [],
+  "safety": [
+    "Do not lean your face into the smoke."
+  ],
   "steps": [
     {
       "text": "Open a gap so air hits the base.",

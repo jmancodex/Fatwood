@@ -21,6 +21,8 @@ describe("teach validator", () => {
     expect(report.unknown).toEqual([]);
     expect(report.orphans).toEqual([]);
     expect(report.actionable).toBe(report.linked + report.atomic);
+    expect(report.dangerWithoutSafety).toEqual([]);
+    expect(report.atomicOnDanger).toEqual([]);
     expect(report.readout.every((row) => row.mean <= 5 && row.max <= 6)).toBe(true);
   });
 });

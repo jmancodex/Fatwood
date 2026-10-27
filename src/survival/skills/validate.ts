@@ -10,6 +10,8 @@ export interface SkillReadout {
   mean: number;
   max: number;
   steps: { text: string; grade: number; words: number }[];
+  safety: { text: string; grade: number; words: number }[];
+  mistakes: { text: string; grade: number; words: number }[];
 }
 
 export interface TeachReport {
@@ -20,6 +22,8 @@ export interface TeachReport {
   coverage: number;
   unknown: string[];
   orphans: string[];
+  dangerWithoutSafety: string[];
+  atomicOnDanger: string[];
   readout: SkillReadout[];
 }
 
@@ -28,6 +32,8 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
   const byId = skillById(skills);
   const unknown = new Set<string>();
   const referenced = new Set<string>();
+  const dangerWithoutSafety: string[] = [];
+  const atomicOnDanger: string[] = [];
   let linked = 0;
   let atomic = 0;
   let actionable = 0;
@@ -47,6 +53,10 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
           }
         } else if (hasAtomic) {
           atomic += 1;
+          if (node.danger || step.danger) {
+            atomicOnDanger.push(`${node.id}.${step.id}`);
+            errors.push(`${node.id} step ${step.id} is atomic on a danger node`);
+          }
         } else {
           errors.push(`${node.id} step ${step.id} is not linked or atomic-with-reason`);
         }
@@ -57,6 +67,10 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
   for (const skill of skills) {
     if (!skill.title.trim() || !skill.kid_text.trim()) errors.push(`${skill.id} is missing title or kid_text`);
     if (!isKnownPictogram(skill.pictogram)) errors.push(`${skill.id} has unknown pictogram ${skill.pictogram || "<empty>"}`);
+    if (skill.danger !== "none" && skill.safety.filter((line) => line.trim()).length === 0) {
+      dangerWithoutSafety.push(skill.id);
+      errors.push(`${skill.id} danger skill has no safety string`);
+    }
     for (const step of skill.steps) {
       if (step.skill) referenced.add(step.skill);
       if (!isKnownPictogram(step.pictogram)) errors.push(`${skill.id} step has unknown pictogram ${step.pictogram || "<empty>"}`);
@@ -74,8 +88,18 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
   const readout: SkillReadout[] = [];
   for (const skill of skills) {
     const stepSamples = skill.steps.map((step) => ({ text: step.text, score: scoreText(step.text) }));
+    const safetySamples = skill.safety.map((text) => ({ text, score: scoreText(text) }));
+    const mistakeSamples = skill.mistakes.flatMap((item) => [
+      { text: item.text, score: scoreText(item.text) },
+      { text: item.fix, score: scoreText(item.fix) },
+    ]);
     const kid = scoreText(skill.kid_text);
-    for (const sample of [...stepSamples, { text: skill.kid_text, score: kid }]) {
+    for (const sample of [
+      ...stepSamples,
+      ...safetySamples,
+      ...mistakeSamples,
+      { text: skill.kid_text, score: kid },
+    ]) {
       if (sample.score.words > 20) errors.push(`${skill.id} has ${sample.score.words} words: ${sample.text}`);
       if (sample.score.grade > 6) errors.push(`${skill.id} grade ${sample.score.grade} over 6.0: ${sample.text}`);
     }
@@ -89,6 +113,8 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
       mean,
       max,
       steps: stepSamples.map((sample) => ({ text: sample.text, grade: sample.score.grade, words: sample.score.words })),
+      safety: safetySamples.map((sample) => ({ text: sample.text, grade: sample.score.grade, words: sample.score.words })),
+      mistakes: mistakeSamples.map((sample) => ({ text: sample.text, grade: sample.score.grade, words: sample.score.words })),
     });
   }
 
@@ -104,6 +130,8 @@ export function validateTeach(trees: Tree[], skills: Skill[], glossary: Glossary
     coverage,
     unknown: [...unknown],
     orphans,
+    dangerWithoutSafety,
+    atomicOnDanger,
     readout,
   };
 }

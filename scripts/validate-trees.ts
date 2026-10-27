@@ -33,8 +33,18 @@ if (skillBanned.length) teach.errors.push(`banned tokens: ${skillBanned.join(", 
 if (urlHits.length) teach.errors.push("skill content contains a URL");
 
 const readout = [
-  "id | title | mean | max | steps",
-  ...teach.readout.map((row) => `${row.id} | ${row.title} | ${row.mean.toFixed(2)} | ${row.max.toFixed(2)} | ${row.steps.length}`),
+  "id | title | mean | max | steps | safety | mistakes",
+  ...teach.readout.map(
+    (row) =>
+      `${row.id} | ${row.title} | ${row.mean.toFixed(2)} | ${row.max.toFixed(2)} | ${row.steps.length} | ${row.safety.length} | ${row.mistakes.length}`,
+  ),
+  "",
+  "kind | id | grade | words | text",
+  ...teach.readout.flatMap((row) => [
+    ...row.steps.map((line) => `step | ${row.id} | ${line.grade.toFixed(2)} | ${line.words} | ${line.text}`),
+    ...row.safety.map((line) => `safety | ${row.id} | ${line.grade.toFixed(2)} | ${line.words} | ${line.text}`),
+    ...row.mistakes.map((line) => `mistake | ${row.id} | ${line.grade.toFixed(2)} | ${line.words} | ${line.text}`),
+  ]),
 ];
 const teachBody = [
   `actionable: ${teach.actionable}`,
@@ -43,6 +53,8 @@ const teachBody = [
   `coverage: ${teach.coverage}`,
   `unknown: ${teach.unknown.join(", ") || "none"}`,
   `orphans: ${teach.orphans.join(", ") || "none"}`,
+  `danger skills without safety: ${teach.dangerWithoutSafety.length}`,
+  `atomic steps on danger nodes: ${teach.atomicOnDanger.length}`,
   `errors: ${teach.errors.length}`,
   ...teach.errors.map((line) => `ERROR ${line}`),
   "",

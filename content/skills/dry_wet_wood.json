@@ -4,7 +4,9 @@
   "pictogram": "knife",
   "danger": "blade",
   "kid_text": "Split the stick. Use the dry inside.",
-  "safety": [],
+  "safety": [
+    "A blade can cut you. Cut away from your body."
+  ],
   "steps": [
     {
       "text": "Take a dead branch that is off the ground.",
