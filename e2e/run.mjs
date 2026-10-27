@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
+import net from "node:net";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium } from "playwright";
 import { abortRoutedRequests, waitForPrecache } from "../scripts/offline-precache.mjs";
@@ -69,6 +70,30 @@ async function reset(page) {
   await button(page, "Settings").click();
   await button(page, "Reset this guide").click();
   await page.getByRole("heading", { name: "Where are you?" }).waitFor();
+}
+
+async function assertPreviewPortFree() {
+  const used = await new Promise((resolve) => {
+    const socket = net.connect({ port: 8081, host: "127.0.0.1" });
+    const finish = (value) => {
+      socket.removeAllListeners();
+      socket.destroy();
+      resolve(value);
+    };
+    socket.once("connect", () => finish(true));
+    socket.once("error", () => finish(false));
+  });
+  if (used) {
+    throw new Error("port 8081 is already in use; stop the other preview before e2e");
+  }
+}
+
+try {
+  await assertPreviewPortFree();
+} catch (error) {
+  log(`FAIL ${error instanceof Error ? error.message : error}`);
+  writeFileSync("evidence/phase-1/e2e.log", lines.join("\n") + "\n");
+  process.exit(1);
 }
 
 const preview = spawn("npm", ["run", "preview", "--", "--host", "127.0.0.1", "--port", "8081", "--strictPort"], {
