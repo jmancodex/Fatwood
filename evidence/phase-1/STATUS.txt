@@ -1,19 +1,19 @@
 PHASE 1 — Engine + Fire: PASS
+Fixes on phase-1-engine-fire: static dist (no Nitro, no db:migrate), build-generated cache-first precache, full-src network scan, offline cold start, Lighthouse 13 report plus Chrome installability.
+
 Gates:
-G1.1 PASS — evidence/phase-1/validator.log (0 errors)
-G1.2 PASS — engine lines 93.47%, resolver lines 100%, combined lines 94.23% (evidence/phase-1/coverage/coverage-summary.json). Tests 21/21.
-G1.3 PASS — evidence/phase-1/trace-a-boreal-wet-ferro.json, trace-b-desert-hand.json, trace-c-coastal-lighter.json, trace-d-snow-matches.json, plus empty-inventory sweep of 8 biomes x 4 weathers in src/survival/engine.test.ts
-G1.4 PASS — safety strings rendered before steps (NodeView.test.tsx and golden d)
-G1.5 PASS — guide source has no fetch/XHR/websocket (src/survival/network.test.ts); offline e2e completed
-G1.6 PASS — banned-token scan clean (validator.log)
-G1.7 PASS — session unit test and e2e reload restored fire.hypothermia
-G1.8 PASS — evidence/phase-1/e2e.log (offline, zero same-origin network responses, goldens a–e)
-G1.9 PASS — Lighthouse 11.7.1 PWA score 1. installable-manifest 1 ("Web app manifest and service worker meet the installability requirements"). evidence/phase-1/lighthouse-summary.txt
-G1.10 PASS — pictogram coverage 1, unknown none, 70 ids (validator.log). Every id renders an inline SVG (NodeView.test.tsx).
-G1.11 PASS — kid mode grown-up gate hides site steps until press-and-hold (e2e.log). Tap target >= 48px.
-G1.12 PASS — home tiles, I need menu, biome picker, checklists, night mode, reduced motion, axe wcag2aa serious/critical empty (evidence/phase-1/axe.json)
-Banned-token scan: clean
-Tests: 21/21, coverage lines 94.23% on engine+resolver
-Golden traversals: trace-a through trace-d plus e2e a–e
-Unfinished: Phase 2 Water, Phase 3 Shelter, Phase 4 Food, Phase 5 Signaling & navigation, Phase 6 First aid, Phase 7 I want router (phase 1 has fire-only intent chips).
-Source control: GitHub repo creation returned HTTP 403 (token cannot create repositories). PR not opened.
+G1.1 PASS — evidence/phase-1/validator.log (errors: 0)
+G1.2 PASS — engine lines 93.47%, resolver lines 100%, combined lines 94.23%. Tests 22/22.
+G1.3 PASS — trace-a through trace-e, including evidence/phase-1/trace-e-empty-inventory.json (8 biomes x 4 weathers, empty inventory, no dead-end, no-gear method reached)
+G1.4 PASS — safety strings before steps (NodeView.test.tsx and golden d)
+G1.5 PASS — scripts/scan-offline.mjs on all of src/ and on dist/. Zero fetch/XHR/WebSocket/EventSource and zero http(s) URLs outside sw.js. W3C namespace URIs are ignored because they are DOM identifiers, not requests. The React error-code prefix and the Tailwind license comment are stripped from the shipped bundle. Vite modulepreload (which calls fetch) is off.
+G1.6 PASS — banned hits: none
+G1.7 PASS — e2e reload restored fire.hypothermia
+G1.8 PASS — evidence/phase-1/e2e.log. After install, the page is closed, the context is offline, and every request that is not in the precache is aborted. Goldens a–e passed. Leaked requests: none.
+G1.9 PARTIAL — Lighthouse 13.5.0 has no PWA category. service-worker, works-offline, and installable-manifest audits: NOT RUN (absent). Report: evidence/phase-1/lighthouse.json and lighthouse-summary.txt. Chrome Page.getInstallabilityErrors: 0 (evidence/phase-1/installability.json). Offline cold start in that same run: PASS. G1.8 e2e log: PASS.
+G1.10 PASS — pictogram coverage 1, unknown none, 70 ids
+G1.11 PASS — kid-mode grown-up gate (e2e.log)
+G1.12 PASS — shell, night mode, reduced motion, axe (e2e.log, axe.json)
+
+Build: dist/index.html exists. Precache lists every file in dist/assets (10/10). See evidence/phase-1/precache-manifest.json.
+Unfinished: Phases 2–7.

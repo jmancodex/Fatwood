@@ -6,4 +6,4 @@ PASS golden b
 PASS golden c
 PASS golden d
 PASS golden e
-PASS offline zero same-origin network
+PASS offline zero requests of any origin

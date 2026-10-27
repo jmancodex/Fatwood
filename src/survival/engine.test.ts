@@ -83,14 +83,49 @@ describe("fire golden traversals", () => {
       "alpine",
       "urban_ruin",
     ] as const;
+    const sweep = [];
     for (const biome of biomes) {
       for (const weather of ["dry", "wet", "freezing", "hot"] as const) {
         const result = walk(fireTree, ctx({ biome, weather, inventory: [] }));
         expect(result.deadEnd, `${biome} ${weather}`).toBe(false);
         expect(result.ended, `${biome} ${weather}`).toBe(true);
         expect(result.trace.some((event) => event.no_gear), `${biome} ${weather}`).toBe(true);
+        sweep.push({
+          biome,
+          weather,
+          ended: result.ended,
+          deadEnd: result.deadEnd,
+          finalNodeId: result.finalNodeId,
+          noGearNodes: result.trace.filter((event) => event.no_gear).map((event) => event.nodeId),
+        });
       }
     }
+    const sample = walk(fireTree, ctx({ biome: "tropical/jungle", weather: "wet", inventory: [] }));
+    mkdirSync("evidence/phase-1", { recursive: true });
+    writeFileSync(
+      "evidence/phase-1/trace-e-empty-inventory.json",
+      JSON.stringify(
+        {
+          note: "Empty inventory, every biome and weather, reaches a no-gear method and does not dead-end.",
+          sample: {
+            biome: "tropical/jungle",
+            weather: "wet",
+            inventory: [],
+            ended: sample.ended,
+            deadEnd: sample.deadEnd,
+            finalNodeId: sample.finalNodeId,
+            path: sample.trace.map((event) => ({
+              nodeId: event.nodeId,
+              optionId: event.optionId,
+              no_gear: event.no_gear === true,
+            })),
+          },
+          sweep,
+        },
+        null,
+        2,
+      ),
+    );
   });
 });
 

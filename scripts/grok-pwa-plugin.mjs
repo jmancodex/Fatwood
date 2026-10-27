@@ -153,10 +153,12 @@ function wrapHtmlResponses(middlewares, cwd) {
 
 export function grokPwaPlugin() {
   let root = process.cwd();
+  let command = "serve";
   return {
     name: "app-builder:grok-pwa",
     configResolved(config) {
       root = config.root;
+      command = config.command;
     },
     resolveId(id) {
       if (id === GROK_OG_IDENTITY_ID) return `\0${GROK_OG_IDENTITY_ID}`;
@@ -166,6 +168,9 @@ export function grokPwaPlugin() {
       return `export const grokOgIdentity = ${JSON.stringify(snapshotOgIdentity(root))};`;
     },
     transformIndexHtml(html) {
+      // The production file must not contain remote URLs. Dev still injects
+      // platform head tags through configureServer below.
+      if (command !== "serve") return html;
       return injectGrokPwaHead(html, {
         host: process.env.VITE_PUBLIC_HOSTNAME ?? "",
         cwd: root,
@@ -178,13 +183,9 @@ export function grokPwaPlugin() {
       wrapHtmlResponses(server.middlewares, root);
     },
     configurePreviewServer(server) {
+      // Install tutorial only. Do not inject remote scripts into the built
+      // document: the offline field guide must cold-start with zero network.
       serveGrokPwa(server.middlewares);
-      // Post-hook: preview registers compression between the direct hooks and
-      // the post-hooks, and the injector must wrap AFTER compression so it
-      // sees plaintext HTML (compression then compresses the injected output).
-      return () => {
-        wrapHtmlResponses(server.middlewares, root);
-      };
     },
   };
 }

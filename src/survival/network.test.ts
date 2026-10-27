@@ -1,23 +1,14 @@
-import { readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-
-function files(dir: string): string[] {
-  return readdirSync(dir).flatMap((name) => {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) return files(path);
-    return /\.(ts|tsx)$/.test(name) && !name.endsWith(".test.ts") && !name.endsWith(".test.tsx") ? [path] : [];
-  });
-}
+import { scanTree } from "../../scripts/scan-offline.mjs";
 
 describe("offline content", () => {
-  it("does not call the network from the guide", () => {
-    const paths = [...files("src/survival"), ...files("src/components/guide"), ...files("src/routes")];
-    const banned = /fetch\s*\(|XMLHttpRequest|axios|WebSocket|https?:\/\//;
-    const hits = paths.flatMap((path) => {
-      const text = readFileSync(path, "utf8");
-      return banned.test(text) ? [path] : [];
-    });
-    expect(hits).toEqual([]);
+  it("has no network calls or http(s) URLs in src outside sw.js", () => {
+    expect(scanTree("src")).toEqual([]);
+  });
+
+  it("has no network calls or http(s) URLs in the built bundle outside sw.js", () => {
+    if (!existsSync("dist/index.html")) return;
+    expect(scanTree("dist")).toEqual([]);
   });
 });
