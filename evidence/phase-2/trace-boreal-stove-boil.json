@@ -1,0 +1,56 @@
+{
+  "ended": true,
+  "deadEnd": false,
+  "finalNodeId": "water.store",
+  "path": [
+    {
+      "nodeId": "water.triage",
+      "optionId": "drank",
+      "safety": [
+        "If water is scarce, do not eat high-protein food; digestion uses water."
+      ],
+      "no_gear": false,
+      "substitutions": []
+    },
+    {
+      "nodeId": "water.find",
+      "optionId": "snow",
+      "safety": [
+        "Never drink seawater or urine."
+      ],
+      "no_gear": false,
+      "substitutions": []
+    },
+    {
+      "nodeId": "water.melt",
+      "optionId": "stove",
+      "safety": [
+        "Do not eat snow or ice to hydrate; melt it first — eating it accelerates hypothermia."
+      ],
+      "no_gear": false,
+      "substitutions": [
+        "a bag of snow inside your coat, off your skin"
+      ]
+    },
+    {
+      "nodeId": "water.boil",
+      "optionId": "store",
+      "safety": [
+        "Boil at a rolling boil for 1 minute (3 minutes above 2,000 m / 6,500 ft)."
+      ],
+      "no_gear": false,
+      "substitutions": [
+        "hot rocks in a bark or rock basin"
+      ]
+    },
+    {
+      "nodeId": "water.store",
+      "safety": [
+        "If water is scarce, do not eat high-protein food; digestion uses water.",
+        "Never drink seawater or urine."
+      ],
+      "no_gear": false,
+      "substitutions": []
+    }
+  ]
+}

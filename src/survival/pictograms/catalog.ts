@@ -97,6 +97,22 @@ export const PICTOGRAMS: Record<string, PictogramSpec> = {
   dakota: { label: "Dakota hole", paths: ["M6 8h6v4H6z", "M12 14h6v4h-6z", "M10 12c2 1 2 2 2 3"] },
   starfire: { label: "Star fire", paths: ["M12 12l-8 2", "M12 12l8 2", "M12 12 2-7", "M12 12l-5 6", "M12 12l6 5"] },
   pine: { label: "Pine", paths: ["M12 3l-5 7h10z", "M12 8l-6 7h12z", "M12 20v-5"] },
+  melt: { label: "Melt snow", paths: ["M12 4v6", "M8 8l4-4 4 4", "M6 16c2 2 4 2 6 0s4-2 6 0", "M7 20h10"] },
+  sand: { label: "Sand or a wash", paths: ["M4 16c3-3 5-3 8 0s5 3 8 0", "M5 20h14", "M8 12h.1", "M12 10h.1", "M16 13h.1"] },
+  well: { label: "Well", paths: ["M8 8h8v10H8z", "M7 8c0-3 10-3 10 0", "M10 13h4"] },
+  heater: { label: "Water heater", paths: ["M8 3h8v18H8z", "M10 7h4", "M11 18h2"] },
+  vine: { label: "Vine", paths: ["M7 20c2-6 4-8 10-14", "M9 14c2-1 3-1 4 0", "M12 10c2-1 3-1 4 0"] },
+  bamboo: { label: "Bamboo", paths: ["M9 3v18", "M15 3v18", "M9 8h6", "M9 13h6", "M9 18h6"] },
+  raincatch: { label: "Catch rain", paths: ["M4 10h16l-2 8H6z", "M8 6c1 2 1 2 0 3", "M12 4c1 2 1 3 0 4", "M16 6c1 2 1 2 0 3"] },
+  dew: { label: "Dew", paths: ["M12 4c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8z", "M6 19h12"] },
+  pouch: { label: "Soft pouch", paths: ["M9 6h6v3c3 1 3 8 0 10H9c-3-2-3-9 0-10z"] },
+  cloth: { label: "Cloth", paths: ["M5 7h14v12H5z", "M5 11c3 2 5 2 7 0s4-2 7 0"] },
+  bleach: { label: "Bleach", paths: ["M10 3h4v3l2 2v12H8V8l2-2z", "M9 14h6"] },
+  iodine: { label: "Iodine", paths: ["M10 3h4v4H10z", "M9 7h6v13H9z", "M11 12h2"] },
+  tablet: { label: "Tablet", paths: ["M7 12a5 3 0 1 0 10 0 5 3 0 1 0-10 0z", "M7 12v3c0 2 2 3 5 3s5-1 5-3v-3"] },
+  filter: { label: "Filter", paths: ["M6 5h12l-4 7v6l-4 2v-8z"] },
+  uv: { label: "Sunlight bottle", paths: ["M10 8h4v10H10z", "M12 3v2", "M6 6l1.5 1.5", "M18 6l-1.5 1.5", "M4 12h2", "M18 12h2"] },
+  ration: { label: "Ration", paths: ["M6 8h12v11H6z", "M9 8V6h6v2", "M9 13h6"] },
 };
 
 export function pictogramIds(): string[] {
